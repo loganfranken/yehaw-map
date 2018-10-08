@@ -10,14 +10,15 @@
   eventMapElem.id = 'yehaw-event-map';
   eventWrapper.appendChild(eventMapElem);
 
+  var overlayControl = document.createElement('button');
+  overlayControl.id = 'yehaw-event-map-overlay-toggle';
+  overlayControl.innerText = 'Toggle Original Map';
+  overlayControl.addEventListener('click', toggleOverlay);
+  eventWrapper.appendChild(overlayControl);
+
   var eventListElem = document.createElement('ul');
   eventListElem.id = 'yehaw-event-list';
   eventWrapper.appendChild(eventListElem);
-
-  var overlayControl = document.createElement('button');
-  overlayControl.innerText = 'Toggle Overlay';
-  overlayControl.addEventListener('click', toggleOverlay);
-  eventWrapper.appendChild(overlayControl);
 
   window.initYehawMap = function()
   {
@@ -25,7 +26,8 @@
 
     map = new google.maps.Map(eventMapElem, {
       center: center,
-      zoom: 13
+      zoom: 13,
+      disableDefaultUI: true
     });
 
     // Overlay
@@ -98,16 +100,23 @@
     // List Item
     var listItem = document.createElement('li');
 
-    // Event Title
-    var eventTitle = document.createElement('span');
-    eventTitle.innerText = event.title;
-    listItem.appendChild(eventTitle);
-
-    eventTitle.addEventListener('click', function() {
+    listItem.addEventListener('click', function() {
       var markerPosition = marker.getPosition();
       map.setCenter(markerPosition);
       openInfoWindow(infoWindow, marker);
     });
+
+    // Event Title
+    var eventTitle = document.createElement('span');
+    eventTitle.className = 'yehaw-event-title';
+    eventTitle.innerText = event.title;
+    listItem.appendChild(eventTitle);
+
+    // Event Description
+    var eventDescription = document.createElement('span');
+    eventDescription.className = 'yehaw-event-desc';
+    eventDescription.innerText = event.description;
+    listItem.appendChild(eventDescription);
 
     return listItem;
   }

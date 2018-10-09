@@ -5,20 +5,14 @@
   var overlay;
 
   var eventWrapper = document.getElementById('yehaw-event-map-wrapper');
-
-  var eventMapElem = document.createElement('div');
-  eventMapElem.id = 'yehaw-event-map';
-  eventWrapper.appendChild(eventMapElem);
+  var eventMapElem = document.getElementById('yehaw-event-map');
+  var eventListElem = document.getElementById('yehaw-event-list');
 
   //var overlayControl = document.createElement('button');
   //overlayControl.id = 'yehaw-event-map-overlay-toggle';
   //overlayControl.innerText = 'Toggle Original Map';
   //overlayControl.addEventListener('click', toggleOverlay);
   //eventWrapper.appendChild(overlayControl);
-
-  var eventListElem = document.createElement('ul');
-  eventListElem.id = 'yehaw-event-list';
-  eventWrapper.appendChild(eventListElem);
 
   window.initYehawMap = function()
   {
@@ -42,23 +36,23 @@
     //overlay.setMap(map);
 
     // Since multiple events will take place at a given location, we create a
-    // listing of the events by location
+    // dictionary of the events keyed by their location
 
     var locationManifest = [];
     for(var i=0; i<window.yehawEvents.length; i++)
     {
       var event = window.yehawEvents[i];
 
-      if(!locationManifest[event.location])
+      if(!locationManifest[event.location.title])
       {
-        locationManifest[event.location] = {
-          title: event.location,
-          coordinates: event.coordinates,
+        locationManifest[event.location.title] = {
+          title: event.location.title,
+          coordinates: event.location.coordinates,
           events: []
         };
       }
 
-      locationManifest[event.location].events.push({
+      locationManifest[event.location.title].events.push({
         title: event.title,
         date: event.date,
         url: event.url
@@ -75,6 +69,13 @@
       // Info Window
       var infoWindow = setUpInfoWindow(location, marker);
       infoWindows.push(infoWindow);
+
+      // List Item
+      for(var i=0; i<location.events.length; i++)
+      {
+        var event = location.events[i];
+        eventListElem.appendChild(createEventListItem(event, marker, infoWindow));
+      }
     }
   }
 
@@ -113,6 +114,26 @@
     }
 
     infoWindow.open(map, marker);
+  }
+
+  function createEventListItem(event, marker, infoWindow)
+  {
+    // List Item
+    var listItem = document.createElement('li');
+
+    // Event Title
+    var eventTitle = document.createElement('span');
+    eventTitle.innerText = event.title;
+
+    listItem.appendChild(eventTitle);
+
+    eventTitle.addEventListener('click', function() {
+      var markerPosition = marker.getPosition();
+      map.setCenter(markerPosition);
+      openInfoWindow(infoWindow, marker);
+    });
+
+    return listItem;
   }
 
   function toggleOverlay()

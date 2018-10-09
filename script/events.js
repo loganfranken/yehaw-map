@@ -1,92 +1,46 @@
 window.yehawEvents = [
 
   {
-    title: 'Event 1',
-    description: 'Description of Event 1',
-    location: {
-      lat: 47.606209,
-      lng: -122.332069
+    title: 'Coast Salish Exhibition at the Seattle Public Library',
+    date: 'Sat, Oct 6, 2018 4:00 PM - Sun, Dec 9, 2018 5:00 PM',
+    location: 'Seattle Public Library',
+    url: 'https://yehawshow.com/events/2018/10/1/coast-salish-exhibition-at-the-seattle-public-library',
+    coordinates: {
+      lat: 47.6066004,
+      lng: -122.3351724
     }
   },
 
   {
-    title: 'Event 2',
-    description: 'Description of Event 2',
-    location: {
-      lat: 47.615360,
-      lng: -122.343920
+    title: 'Native Kut - Artist in Residence at the Seattle Public Library',
+    date: 'Tuesday, October 9, 2018 11:00 AM - 5:00 PM',
+    location: 'Seattle Public Library',
+    url: 'https://yehawshow.com/events/2018/10/2/native-kut-artist-in-residence-at-the-seattle-public-library-rbsld-fd39x',
+    coordinates: {
+      lat: 47.6066004,
+      lng: -122.3351724
     }
   },
 
   {
-    title: 'Event 3',
-    description: 'Description of Event 3',
-    location: {
-      lat: 47.615361,
-      lng: -122.340000
+    title: 'Native Kut - Artist in Residence at the Seattle Public Library',
+    date: 'Tuesday, October 16, 2018 11:00 AM - 5:00 PM',
+    location: 'Seattle Public Library',
+    url: 'https://yehawshow.com/events/2018/10/2/native-kut-artist-in-residence-at-the-seattle-public-library-rbsld-ye3xj',
+    coordinates: {
+      lat: 47.6066004,
+      lng: -122.3351724
     }
   },
 
   {
-    title: 'Event 4',
-    description: 'Description of Event 4',
-    location: {
-      lat: 47.615362,
-      lng: -122.350000
-    }
-  },
-
-  {
-    title: 'Event 5',
-    description: 'Description of Event 5',
-    location: {
-      lat: 47.615363,
-      lng: -122.360000
-    }
-  },
-
-  {
-    title: 'Event 6',
-    description: 'Description of Event 6',
-    location: {
-      lat: 47.610000,
-      lng: -122.343924
-    }
-  },
-
-  {
-    title: 'Event 7',
-    description: 'Description of Event 7',
-    location: {
-      lat: 47.620000,
-      lng: -122.343924
-    }
-  },
-
-  {
-    title: 'Event 8',
-    description: 'Description of Event 8',
-    location: {
-      lat: 47.630000,
-      lng: -122.343924
-    }
-  },
-
-  {
-    title: 'Event 9',
-    description: 'Description of Event 9',
-    location: {
-      lat: 47.640000,
-      lng: -122.343924
-    }
-  },
-
-  {
-    title: 'Event 10',
-    description: 'Description of Event 10',
-    location: {
-      lat: 47.650000,
-      lng: -122.343924
+    title: 'Monthly Co-Working Sessions in Tacoma',
+    date: 'Thursday, October 18, 2018 6:00 PM - 10:00 PM',
+    location: 'Alma Mater Tacoma',
+    url: 'https://yehawshow.com/events/2018/7/22/monthly-co-working-sessions-in-tacoma-l867l',
+    coordinates: {
+      lat: 47.2499213,
+      lng: -122.4449067
     }
   }
 ];

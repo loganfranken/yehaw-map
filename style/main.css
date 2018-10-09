@@ -16,37 +16,6 @@ html, body
   width: 100%;
 }
 
-#yehaw-event-list
-{
-  height: 442px;
-  list-style: none;
-  margin: 1em 0;
-  overflow: auto;
-  padding: 0;
-}
-
-#yehaw-event-list li
-{
-  cursor: pointer;
-  padding: 0.75em 0.5em;
-  transition: .1s background linear;
-}
-
-#yehaw-event-list li:hover
-{
-  background: #EEE;
-}
-
-#yehaw-event-list .yehaw-event-title
-{
-  display: block;
-}
-
-#yehaw-event-list .yehaw-event-description
-{
-  display: block;
-}
-
 #yehaw-event-map-overlay-toggle
 {
   background: #272727;
@@ -66,30 +35,31 @@ html, body
   opacity: 0.8;
 }
 
+.yehaw-event-location
+{
+  border-top: 1px solid #CCC;
+  display: block;
+  font-size: 1.25em;
+  font-weight: bold;
+  margin-top: 0.5em;
+  padding-top: 0.7em;
+}
+
+.yehaw-event-map-info
+{
+  display: block;
+  font-size: 1.1em;
+  margin-bottom: 1em;
+}
+
 .yehaw-event-title
 {
+  color: #222;
+  display: block;
   font-weight: bold;
 }
 
-@media (min-width: 37.5em)
+.yehaw-event-date
 {
-  #yehaw-event-list
-  {
-    position: absolute;
-    top: 0;
-    margin: 0;
-    width: 30%;
-  }
-
-  #yehaw-event-map
-  {
-    float: right;
-    width: 70%;
-  }
-
-  #yehaw-event-map-overlay-toggle
-  {
-    float: right;
-    width: 70%;
-  }
+  display: block;
 }

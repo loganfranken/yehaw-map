@@ -10,11 +10,11 @@
   eventMapElem.id = 'yehaw-event-map';
   eventWrapper.appendChild(eventMapElem);
 
-  var overlayControl = document.createElement('button');
-  overlayControl.id = 'yehaw-event-map-overlay-toggle';
-  overlayControl.innerText = 'Toggle Original Map';
-  overlayControl.addEventListener('click', toggleOverlay);
-  eventWrapper.appendChild(overlayControl);
+  //var overlayControl = document.createElement('button');
+  //overlayControl.id = 'yehaw-event-map-overlay-toggle';
+  //overlayControl.innerText = 'Toggle Original Map';
+  //overlayControl.addEventListener('click', toggleOverlay);
+  //eventWrapper.appendChild(overlayControl);
 
   var eventListElem = document.createElement('ul');
   eventListElem.id = 'yehaw-event-list';
@@ -38,43 +38,63 @@
       west: -122.332069
     };
 
-    overlay = new google.maps.GroundOverlay('https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg', imageBounds);
-    overlay.setMap(map);
+    //overlay = new google.maps.GroundOverlay('https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg', imageBounds);
+    //overlay.setMap(map);
 
+    // Since multiple events will take place at a given location, we create a
+    // listing of the events by location
+
+    var locationManifest = [];
     for(var i=0; i<window.yehawEvents.length; i++)
     {
       var event = window.yehawEvents[i];
 
-      // Marker
-      var marker = setUpMapMarker(event);
+      if(!locationManifest[event.location])
+      {
+        locationManifest[event.location] = {
+          title: event.location,
+          coordinates: event.coordinates,
+          events: []
+        };
+      }
 
-      // Info Window
-      var infoWindow = setUpInfoWindow(event, marker);
-      infoWindows.push(infoWindow);
-
-      // List Item
-      eventListElem.appendChild(createEventListItem(event, marker, infoWindow));
+      locationManifest[event.location].events.push({
+        title: event.title,
+        date: event.date,
+        url: event.url
+      });
     }
 
+    for(var locationName in locationManifest)
+    {
+      var location = locationManifest[locationName];
+
+      // Marker
+      var marker = setUpMapMarker(location);
+
+      // Info Window
+      var infoWindow = setUpInfoWindow(location, marker);
+      infoWindows.push(infoWindow);
+    }
   }
 
-  function setUpMapMarker(event)
+  function setUpMapMarker(location)
   {
     // Google Maps marker
     var marker = new google.maps.Marker({
       map: map,
-      position: event.location,
-      title: event.title
+      position: location.coordinates,
+      title: location.title
     });
 
     return marker;
   }
 
-  function setUpInfoWindow(event, marker)
+  function setUpInfoWindow(location, marker)
   {
     // Google Maps Info Window
     var infoWindow = new google.maps.InfoWindow({
-      content: event.description
+      content: getInfoWindowDescription(location)
     });
 
     marker.addListener('click', function() {
@@ -95,32 +115,6 @@
     infoWindow.open(map, marker);
   }
 
-  function createEventListItem(event, marker, infoWindow)
-  {
-    // List Item
-    var listItem = document.createElement('li');
-
-    listItem.addEventListener('click', function() {
-      var markerPosition = marker.getPosition();
-      map.setCenter(markerPosition);
-      openInfoWindow(infoWindow, marker);
-    });
-
-    // Event Title
-    var eventTitle = document.createElement('span');
-    eventTitle.className = 'yehaw-event-title';
-    eventTitle.innerText = event.title;
-    listItem.appendChild(eventTitle);
-
-    // Event Description
-    var eventDescription = document.createElement('span');
-    eventDescription.className = 'yehaw-event-desc';
-    eventDescription.innerText = event.description;
-    listItem.appendChild(eventDescription);
-
-    return listItem;
-  }
-
   function toggleOverlay()
   {
     if(overlay.map)
@@ -131,6 +125,23 @@
     {
       overlay.setMap(map);
     }
+  }
+
+  function getInfoWindowDescription(location)
+  {
+    var output = '';
+
+    for(var i=0; i<location.events.length; i++)
+    {
+      var event = location.events[i];
+      output += '<span class="yehaw-event-map-info">';
+      output += '<a href="' + event.url + '" target="_blank" class="yehaw-event-title">' + event.title + '</a>';
+      output += '<span class="yehaw-event-date">' + event.date + '</span>';
+      output += '</span>';
+    }
+
+    output += '<span class="yehaw-event-location">' + location.title + '</span>';
+    return output;
   }
 
 })();

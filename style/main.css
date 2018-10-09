@@ -7,20 +7,20 @@ html, body
   width: 100%;
 }
 
-#yehaw-event-map-wrapper
+#map-wrapper
 {
   position: relative;
   height: 100%;
 }
 
-#yehaw-event-map
+#map
 {
   height: 100%;
   float: right;
-  width: 80%;
+  width: 70%;
 }
 
-#yehaw-event-list
+#event-list
 {
   height: 100%;
   list-style: none;
@@ -29,48 +29,66 @@ html, body
   padding: 0;
 }
 
-#yehaw-event-list li
+#event-list li
 {
   cursor: pointer;
-  padding: 0.75em 0.5em;
+  padding: 0.75em;
   transition: .1s background linear;
 }
 
-#yehaw-event-list li:hover
+#event-list li:hover
 {
   background: #EEE;
 }
 
-#yehaw-event-list .yehaw-event-title
+#event-list .event-title
 {
   display: block;
-}
-
-#yehaw-event-list .yehaw-event-description
-{
-  display: block;
-}
-
-#yehaw-event-map-overlay-toggle
-{
-  background: #272727;
-  border: none;
-  color: #FFF;
-  cursor: pointer;
   font-weight: bold;
-  outline: none;
-  padding: 1em;
-  text-transform: uppercase;
-  transition: .1s opacity linear;
-  width: 100%;
 }
 
-#yehaw-event-map-overlay-toggle:hover
+#event-list .event-date
 {
-  opacity: 0.8;
+  display: block;
 }
 
-.yehaw-event-location
+#event-list .event-location
+{
+  display: block;
+}
+
+.map-location-info-wrapper
+{
+  font-size: 1.1em;
+}
+
+.map-location-info
+{
+  display: block;
+  margin-bottom: 1em;
+}
+
+.map-location-info .event-title
+{
+  color: #222;
+  display: block;
+  font-weight: bold;
+}
+
+.map-location-info .event-date
+{
+  display: block;
+}
+
+.map-location-info-wrapper .explanation
+{
+  border-bottom: 1px solid #CCC;
+  display: block;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.7em;
+}
+
+.map-location-info-wrapper .event-location
 {
   border-top: 1px solid #CCC;
   display: block;
@@ -80,21 +98,25 @@ html, body
   padding-top: 0.7em;
 }
 
-.yehaw-event-map-info
+.map-event-info-wrapper
+{
+  font-size: 1.2em;
+}
+
+.map-event-info
 {
   display: block;
-  font-size: 1.1em;
   margin-bottom: 1em;
 }
 
-.yehaw-event-title
+.map-event-info .event-title
 {
   color: #222;
   display: block;
   font-weight: bold;
 }
 
-.yehaw-event-date
+.map-event-info .event-date
 {
   display: block;
 }

@@ -4,9 +4,9 @@
   var map;
   var overlay;
 
-  var eventWrapper = document.getElementById('yehaw-event-map-wrapper');
-  var eventMapElem = document.getElementById('yehaw-event-map');
-  var eventListElem = document.getElementById('yehaw-event-list');
+  var eventWrapper = document.getElementById('map-wrapper');
+  var eventMapElem = document.getElementById('map');
+  var eventListElem = document.getElementById('event-list');
 
   //var overlayControl = document.createElement('button');
   //overlayControl.id = 'yehaw-event-map-overlay-toggle';
@@ -52,11 +52,7 @@
         };
       }
 
-      locationManifest[event.location.title].events.push({
-        title: event.title,
-        date: event.date,
-        url: event.url
-      });
+      locationManifest[event.location.title].events.push(event);
     }
 
     for(var locationName in locationManifest)
@@ -94,11 +90,10 @@
   function setUpInfoWindow(location, marker)
   {
     // Google Maps Info Window
-    var infoWindow = new google.maps.InfoWindow({
-      content: getInfoWindowDescription(location)
-    });
+    var infoWindow = new google.maps.InfoWindow();
 
     marker.addListener('click', function() {
+      infoWindow.setContent(getLocationInfoWindowContent(location));
       openInfoWindow(infoWindow, marker);
     });
 
@@ -123,14 +118,30 @@
 
     // Event Title
     var eventTitle = document.createElement('span');
+    eventTitle.className = 'event-title';
     eventTitle.innerText = event.title;
-
     listItem.appendChild(eventTitle);
 
-    eventTitle.addEventListener('click', function() {
+    // Event Date
+    var eventDate = document.createElement('span');
+    eventDate.className = 'event-date';
+    eventDate.innerText = moment(event.start).format('MMMM Do YYYY');
+    listItem.appendChild(eventDate);
+
+    // Event Location
+    var eventLocation = document.createElement('span');
+    eventLocation.className = 'event-location';
+    eventLocation.innerText = event.location.title;
+    listItem.appendChild(eventLocation);
+
+    listItem.addEventListener('click', function() {
+
       var markerPosition = marker.getPosition();
       map.setCenter(markerPosition);
+
+      infoWindow.setContent(getEventInfoWindowContent(event));
       openInfoWindow(infoWindow, marker);
+
     });
 
     return listItem;
@@ -148,20 +159,46 @@
     }
   }
 
-  function getInfoWindowDescription(location)
+  function getLocationInfoWindowContent(location)
   {
     var output = '';
 
-    for(var i=0; i<location.events.length; i++)
+    output += '<div class="map-location-info-wrapper">';
+    output += '<span class="explanation">Upcoming events at this location:</span>';
+
+    for(var i=0; i<3; i++)
     {
       var event = location.events[i];
-      output += '<span class="yehaw-event-map-info">';
-      output += '<a href="' + event.url + '" target="_blank" class="yehaw-event-title">' + event.title + '</a>';
-      output += '<span class="yehaw-event-date">' + event.date + '</span>';
+
+      if(!event)
+      {
+        break;
+      }
+
+      output += '<span class="map-location-info">';
+      output += '<a href="' + event.url + '" target="_blank" class="event-title">' + event.title + '</a>';
+      output += '<span class="event-date">' + moment(event.start).format('MMMM Do YYYY') + '</span>';
       output += '</span>';
     }
 
-    output += '<span class="yehaw-event-location">' + location.title + '</span>';
+    output += '<span class="event-location">' + location.title + '</span>';
+    output += '</div>';
+
+    return output;
+  }
+
+  function getEventInfoWindowContent(event)
+  {
+    var output = '';
+
+    output += '<div class="map-event-info-wrapper">';
+    output += '<span class="map-event-info">';
+    output += '<a href="' + event.url + '" target="_blank" class="event-title">' + event.title + '</a>';
+    output += '<span class="event-date">' + moment(event.start).format('MMMM Do YYYY h:mm A') + ' - ' + moment(event.end).format('MMMM Do YYYY h:mm A') + '</span>';
+    output += '<span class="event-location">' + event.location.title + '</span>';
+    output += '</span>';
+    output += '</div>';
+
     return output;
   }
 

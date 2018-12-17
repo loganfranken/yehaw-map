@@ -21,7 +21,8 @@
     map = new google.maps.Map(eventMapElem, {
       center: center,
       zoom: 13,
-      disableDefaultUI: true
+      disableDefaultUI: true,
+      styles: window.mapStyles
     });
 
     // Overlay

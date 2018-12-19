@@ -7,22 +7,44 @@ html, body
   width: 100%;
 }
 
+/* Layout
+------------------------------------------------------- */
+
 #map-wrapper
 {
-  position: relative;
+  display: flex;
+  flex-direction: column;
   height: 100%;
+}
+
+#event-wrapper
+{
+  display: flex;
+  flex-direction: row;
+}
+
+#filter-list
+{
+  background: #E8ECEC;
+  display: flex;
+  height: 20em;
 }
 
 #map
 {
-  height: 100%;
-  float: right;
-  width: 70%;
+  flex: 1;
 }
 
 #event-list
 {
-  height: 100%;
+  width: 20em;
+}
+
+/* Event List
+------------------------------------------------------- */
+
+#event-list
+{
   list-style: none;
   margin: 0;
   overflow: auto;
@@ -56,6 +78,9 @@ html, body
 {
   display: block;
 }
+
+/* Info Window (Map Location)
+------------------------------------------------------- */
 
 .map-location-info-wrapper
 {
@@ -98,6 +123,9 @@ html, body
   padding-top: 0.7em;
 }
 
+/* Info Window (Event)
+------------------------------------------------------- */
+
 .map-event-info-wrapper
 {
   font-size: 1.2em;
@@ -119,4 +147,35 @@ html, body
 .map-event-info .event-date
 {
   display: block;
+}
+
+/* Filter List
+------------------------------------------------------- */
+
+#filter-list
+{
+  align-items: center;
+  flex-direction: row-reverse;
+  list-style: none;
+  margin: 0;
+  overflow: auto;
+  padding: 0;
+}
+
+#filter-list li
+{
+  margin: 0 1em;
+}
+
+#filter-list label
+{
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.25em;
+}
+
+#filter-list select
+{
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1em;
 }

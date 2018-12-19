@@ -12,8 +12,55 @@
 <body>
 
   <div id="map-wrapper">
-    <div id="map"></div>
-    <ul id="event-list"></ul>
+    <ul id="filter-list">
+      <li>
+        <label for="filter-artist">Artist</label>
+        <select id="filter-artist">
+          <option>Artist A</option>
+          <option>Artist B</option>
+          <option>Artist C</option>
+          <option>Artist D</option>
+        </select>
+      </li>
+      <li>
+        <label for="filter-location">Location</label>
+        <select id="filter-location">
+          <option>Location A</option>
+          <option>Location B</option>
+          <option>Location C</option>
+          <option>Location D</option>
+        </select>
+      </li>
+      <li>
+        <label for="filter-event-type">Event Type</label>
+        <select id="filter-event-type">
+          <option>Exhibition</option>
+          <option>Reading</option>
+          <option>Sale</option>
+          <option>Performance</option>
+        </select>
+      </li>
+      <li>
+        <label for="filter-date">Date</label>
+        <select id="filter-date">
+          <option>12/19/18</option>
+          <option>12/20/18</option>
+          <option>12/21/18</option>
+          <option>12/22/18</option>
+        </select>
+      </li>
+      <li>
+        <label for="filter-invited">Invited</label>
+        <select id="filter-invited">
+          <option>Indigenous</option>
+          <option>Non-Indigenous</option>
+        </select>
+      </li>
+    </ul>
+    <div id="event-wrapper">
+      <ul id="event-list"></ul>
+      <div id="map"></div>
+    </div>
   </div>
 
   <script src="script/moment.min.js"></script>

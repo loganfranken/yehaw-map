@@ -8,6 +8,12 @@
   var eventMapElem = document.getElementById('map');
   var eventListElem = document.getElementById('event-list');
 
+  var artistFilter = document.getElementById('filter-artist');
+  var locationFilter = document.getElementById('filter-location');
+  var eventTypeFilter = document.getElementById('filter-event-type');
+  var dateFilter = document.getElementById('filter-date');
+  var invitedFilter = document.getElementById('filter-invited');
+
   //var overlayControl = document.createElement('button');
   //overlayControl.id = 'yehaw-event-map-overlay-toggle';
   //overlayControl.innerText = 'Toggle Original Map';
@@ -36,14 +42,18 @@
     //overlay = new google.maps.GroundOverlay('https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg', imageBounds);
     //overlay.setMap(map);
 
-    // Since multiple events will take place at a given location, we create a
-    // dictionary of the events keyed by their location
+    // Build a manifest of events
 
     var locationManifest = [];
+    var artistManifest = [];
+    var eventTypeManifest = [];
+    var dateManifest = [];
+
     for(var i=0; i<window.yehawEvents.length; i++)
     {
       var event = window.yehawEvents[i];
 
+      // Location
       if(!locationManifest[event.location.title])
       {
         locationManifest[event.location.title] = {
@@ -54,6 +64,26 @@
       }
 
       locationManifest[event.location.title].events.push(event);
+
+      // Artist
+      for(var artistIndex in event.artists)
+      {
+        var artist = event.artists[artistIndex];
+        if(!artistManifest[artist])
+        {
+          artistManifest[artist] = {
+            name: artist
+          };
+        }
+      }
+
+      // Event Type
+      if(!eventTypeManifest[event.eventType])
+      {
+        eventTypeManifest[event.eventType] = {
+          title: event.eventType
+        };
+      }
     }
 
     for(var locationName in locationManifest)
@@ -73,6 +103,18 @@
         var event = location.events[i];
         eventListElem.appendChild(createEventListItem(event, marker, infoWindow));
       }
+
+      locationFilter.innerHTML += '<option>' + locationName + '</option>';
+    }
+
+    for(var artist in artistManifest)
+    {
+      artistFilter.innerHTML += '<option>' + artist + '</option>';
+    }
+
+    for(var eventType in eventTypeManifest)
+    {
+      eventTypeFilter.innerHTML += '<option>' + artist + '</option>';
     }
   }
 

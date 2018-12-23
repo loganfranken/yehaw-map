@@ -1,6 +1,12 @@
 (() => {
 
+  const markers = [];
   const infoWindows = [];
+
+  const locationManifest = [];
+  const artistManifest = [];
+  const eventTypeManifest = [];
+
   let map;
   let overlay;
 
@@ -41,12 +47,6 @@
 
     //overlay = new google.maps.GroundOverlay('https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg', imageBounds);
     //overlay.setMap(map);
-
-    // Build a manifest of events
-
-    const locationManifest = [];
-    const artistManifest = [];
-    const eventTypeManifest = [];
 
     window.yehawEvents.forEach(event => {
 
@@ -89,13 +89,73 @@
 
     });
 
+    refreshMap();
+
     locationManifest.sort((a, b) => {
       if(a.title < b.title) { return -1; }
       if(a.title > b.title) { return 1; }
       return 0;
     });
+    locationManifest.forEach(location => { locationFilter.innerHTML += `<option>${location.title}</option>`; });
 
+    artistManifest.sort();
+    artistManifest.forEach(artist => { artistFilter.innerHTML += `<option>${artist}</option>`; });
+
+    eventTypeManifest.sort();
+    eventTypeManifest.forEach(eventType => { eventTypeFilter.innerHTML += `<option>${eventType}</option>`; });
+  }
+
+  const getFilters = () => {
+
+    return {
+      artist: artistFilter.value === 'All' ? null : artistFilter.value,
+      location: locationFilter.value === 'All' ? null : locationFilter.value,
+      eventType: eventTypeFilter.value === 'All' ? null : eventTypeFilter.value,
+      date: dateFilter.value === '' ? null : dateFilter.value,
+      invited: invitedFilter.value === 'All' ? null : invitedFilter.value
+    };
+
+  };
+
+  const refreshMap = () => {
+
+    // Clear all of the current event information
+    markers.forEach(marker => { marker.setMap(null); });
+    eventListElem.innerHTML = '';
+
+    // Get the current state of the filters
+    const filters = getFilters();
+    const filteredLocationManifest = [];
+
+    // Filter the location manifest
     locationManifest.forEach(location => {
+
+      if(filters.location === null || filters.location === location.title)
+      {
+        filteredLocationManifest.push(location);
+      }
+
+      /*
+      // Location
+      let location = locationManifest.find(location => location.title === event.location.title);
+
+      if(!location)
+      {
+        location = {
+          title: event.location.title,
+          coordinates: event.location.coordinates,
+          events: []
+        };
+
+        locationManifest.push(location);
+      }
+
+      location.events.push(event);
+      */
+
+    });
+
+    filteredLocationManifest.forEach(location => {
 
       // Marker
       const marker = setUpMapMarker(location);
@@ -109,25 +169,22 @@
         eventListElem.appendChild(createEventListItem(event, marker, infoWindow));
       });
 
-      locationFilter.innerHTML += `<option>${location.title}</option>`;
-
     });
 
-    artistManifest.sort();
-    artistManifest.forEach(artist => { artistFilter.innerHTML += `<option>${artist}</option>`; });
-
-    eventTypeManifest.sort();
-    eventTypeManifest.forEach(eventType => { eventTypeFilter.innerHTML += `<option>${eventType}</option>`; });
-  }
+  };
 
   const setUpMapMarker = (location) => {
 
     // Google Maps marker
-    return new google.maps.Marker({
+    const marker = new google.maps.Marker({
       map: map,
       position: location.coordinates,
       title: location.title
     });
+
+    markers.push(marker);
+
+    return marker;
 
   }
 
@@ -136,7 +193,7 @@
     // Google Maps Info Window
     const infoWindow = new google.maps.InfoWindow();
 
-    marker.addListener('click', function() {
+    marker.addListener('click', () => {
       infoWindow.setContent(getLocationInfoWindowContent(location));
       openInfoWindow(infoWindow, marker);
     });
@@ -246,5 +303,7 @@
 
     return output;
   }
+
+  locationFilter.addEventListener('change', refreshMap);
 
 })();

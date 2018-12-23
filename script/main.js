@@ -51,42 +51,51 @@
     window.yehawEvents.forEach(event => {
 
       // Location
-      if(!locationManifest[event.location.title])
+      let location = locationManifest.find(location => location.title === event.location.title);
+
+      if(!location)
       {
-        locationManifest[event.location.title] = {
+        location = {
           title: event.location.title,
           coordinates: event.location.coordinates,
           events: []
         };
+
+        locationManifest.push(location);
       }
 
-      locationManifest[event.location.title].events.push(event);
+      location.events.push(event);
 
       // Artist
       event.artists.forEach(artist => {
 
-        if(!artistManifest[artist])
+        if(artist === 'Various')
         {
-          artistManifest[artist] = {
-            name: artist
-          };
+          return;
+        }
+
+        if(!artistManifest.includes(artist))
+        {
+          artistManifest.push(artist);
         }
 
       });
 
       // Event Type
-      if(!eventTypeManifest[event.eventType])
+      if(!eventTypeManifest.includes(event.eventType.title))
       {
-        eventTypeManifest[event.eventType.title] = {
-          title: event.eventType.title
-        };
+        eventTypeManifest.push(event.eventType.title);
       }
 
     });
 
-    for(let locationName in locationManifest)
-    {
-      const location = locationManifest[locationName];
+    locationManifest.sort((a, b) => {
+      if(a.title < b.title) { return -1; }
+      if(a.title > b.title) { return 1; }
+      return 0;
+    });
+
+    locationManifest.forEach(location => {
 
       // Marker
       const marker = setUpMapMarker(location);
@@ -100,18 +109,15 @@
         eventListElem.appendChild(createEventListItem(event, marker, infoWindow));
       });
 
-      locationFilter.innerHTML += `<option>${locationName}</option>`;
-    }
+      locationFilter.innerHTML += `<option>${location.title}</option>`;
 
-    for(let artist in artistManifest)
-    {
-      artistFilter.innerHTML += `<option>${artist}</option>`;
-    }
+    });
 
-    for(let eventType in eventTypeManifest)
-    {
-      eventTypeFilter.innerHTML += `<option>${eventType}</option>`;
-    }
+    artistManifest.sort();
+    artistManifest.forEach(artist => { artistFilter.innerHTML += `<option>${artist}</option>`; });
+
+    eventTypeManifest.sort();
+    eventTypeManifest.forEach(eventType => { eventTypeFilter.innerHTML += `<option>${eventType}</option>`; });
   }
 
   const setUpMapMarker = (location) => {

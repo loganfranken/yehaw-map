@@ -47,7 +47,6 @@
     var locationManifest = [];
     var artistManifest = [];
     var eventTypeManifest = [];
-    var dateManifest = [];
 
     for(var i=0; i<window.yehawEvents.length; i++)
     {
@@ -80,8 +79,8 @@
       // Event Type
       if(!eventTypeManifest[event.eventType])
       {
-        eventTypeManifest[event.eventType] = {
-          title: event.eventType
+        eventTypeManifest[event.eventType.title] = {
+          title: event.eventType.title
         };
       }
     }
@@ -114,7 +113,7 @@
 
     for(var eventType in eventTypeManifest)
     {
-      eventTypeFilter.innerHTML += '<option>' + artist + '</option>';
+      eventTypeFilter.innerHTML += '<option>' + eventType + '</option>';
     }
   }
 

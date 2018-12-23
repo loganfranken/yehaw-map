@@ -1,6 +1,6 @@
-(function() {
+(() => {
 
-  var Location = {
+  const Location = {
 
     SeattlePublicLibrary: {
       title: 'Seattle Public Library',
@@ -68,12 +68,19 @@
 
   };
 
-  var EventType = {
+  const EventType = {
 
     Exhibition: { title: 'Exhibition' },
     Reading: { title: 'Reading' },
     Sale: { title: 'Sale' },
     Performance: { title: 'Performance' }
+
+  };
+
+  const Invited = {
+
+    Indigenous: { title: 'Indigenous' },
+    NonIndigenous: { title: 'Non-Indigenous' }
 
   };
 
@@ -86,7 +93,8 @@
       url: 'https://yehawshow.com/events/2019/1/10/latinx-indigenous-artists-at-vermillion-gallery',
       location: Location.VermillionGallery,
       artists: ['Various'],
-      eventType: EventType.Exhibition
+      eventType: EventType.Exhibition,
+      invited: Invited.NonIndigenous
     },
 
     {
@@ -96,7 +104,8 @@
       url: 'https://yehawshow.com/events/2018/11/15/kanani-miyamoto-at-feast-arts-center-8b2zm',
       location: Location.FeastArtsCenter,
       artists: ['Lehuauakea Fernandez'],
-      eventType: EventType.Exhibition
+      eventType: EventType.Exhibition,
+      invited: Invited.NonIndigenous
     },
 
     {
@@ -106,7 +115,8 @@
       url: 'https://yehawshow.com/events/2018/8/19/yhaw-exhibition-opening-at-king-street-station',
       location: Location.KingStreetStation,
       artists: ['Various'],
-      eventType: EventType.Exhibition
+      eventType: EventType.Exhibition,
+      invited: Invited.NonIndigenous
     },
 
     {
@@ -116,7 +126,8 @@
       url: 'https://yehawshow.com/events/2019/1/25/art-encounter-at-sams-olympic-sculpture-park',
       location: Location.OlympicSculpturePark,
       artists: ['Various'],
-      eventType: EventType.Performance
+      eventType: EventType.Performance,
+      invited: Invited.NonIndigenous
     },
 
     {
@@ -126,7 +137,8 @@
       url: 'https://yehawshow.com/events/2018/11/15/kanani-miyamoto-at-feast-arts-center-jj734',
       location: Location.FeastArtsCenter,
       artists: ['Catherine Cross'],
-      eventType: EventType.Exhibition
+      eventType: EventType.Exhibition,
+      invited: Invited.NonIndigenous
     },
 
     {
@@ -136,7 +148,8 @@
       url: 'https://yehawshow.com/events/2019/1/25/art-encounter-at-sams-olympic-sculpture-park-yn7db',
       location: Location.OlympicSculpturePark,
       artists: ['Various'],
-      eventType: EventType.Performance
+      eventType: EventType.Performance,
+      invited: Invited.NonIndigenous
     },
 
     {
@@ -146,7 +159,8 @@
       url: 'https://yehawshow.com/events/2019/2/28/sam-community-gallery-opening-reception',
       location: Location.SeattleArtMuseum,
       artists: ['Various'],
-      eventType: EventType.Exhibition
+      eventType: EventType.Exhibition,
+      invited: Invited.NonIndigenous
     },
 
     {
@@ -156,7 +170,8 @@
       url: 'https://yehawshow.com/events/2019/2/28/sam-community-gallery-opening-reception-d4ydj',
       location: Location.SeattleArtMuseum,
       artists: ['Various'],
-      eventType: EventType.Exhibition
+      eventType: EventType.Exhibition,
+      invited: Invited.NonIndigenous
     }
   ];
 

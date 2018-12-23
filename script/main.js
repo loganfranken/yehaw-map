@@ -6,6 +6,7 @@
   const locationManifest = [];
   const artistManifest = [];
   const eventTypeManifest = [];
+  const invitedManifest = [];
 
   let map;
   let overlay;
@@ -87,6 +88,12 @@
         eventTypeManifest.push(event.eventType.title);
       }
 
+      // Invited
+      if(!invitedManifest.includes(event.invited.title))
+      {
+        invitedManifest.push(event.invited.title);
+      }
+
     });
 
     refreshMap();
@@ -103,6 +110,9 @@
 
     eventTypeManifest.sort();
     eventTypeManifest.forEach(eventType => { eventTypeFilter.innerHTML += `<option>${eventType}</option>`; });
+
+    invitedManifest.sort();
+    invitedManifest.forEach(invited => { invitedFilter.innerHTML += `<option>${invited}</option>`; });
   }
 
   const getFilters = () => {
@@ -130,28 +140,50 @@
     // Filter the location manifest
     locationManifest.forEach(location => {
 
-      if(filters.location === null || filters.location === location.title)
+      // Filter: Location
+      if(filters.location !== null && filters.location !== location.title)
       {
-        filteredLocationManifest.push(location);
+        return;
       }
 
-      /*
-      // Location
-      let location = locationManifest.find(location => location.title === event.location.title);
+      let filteredLocation = {
+        title: location.title,
+        coordinates: location.coordinates,
+        events: []
+      };
 
-      if(!location)
-      {
-        location = {
-          title: event.location.title,
-          coordinates: event.location.coordinates,
-          events: []
-        };
+      location.events.forEach(event => {
 
-        locationManifest.push(location);
-      }
+        // Filter: Artist
+        if(filters.artist !== null && !event.artists.includes(filters.artist))
+        {
+          return;
+        }
 
-      location.events.push(event);
-      */
+        // Filter: Event Type
+        if(filters.eventType !== null && event.eventType.title !== filters.eventType)
+        {
+          return;
+        }
+
+        // Filter: Invited
+        if(filters.invited !== null && event.invited.title !== filters.invited)
+        {
+          return;
+        }
+
+        // Filter: Event Date
+        const filterDate = moment(filters.date);
+        if(filters.date !== null && (filterDate.isBefore(event.start, 'day') || filterDate.isAfter(event.end, 'day')))
+        {
+          return;
+        }
+
+        filteredLocation.events.push(event);
+
+      });
+
+      filteredLocationManifest.push(filteredLocation);
 
     });
 
@@ -305,5 +337,9 @@
   }
 
   locationFilter.addEventListener('change', refreshMap);
+  artistFilter.addEventListener('change', refreshMap);
+  eventTypeFilter.addEventListener('change', refreshMap);
+  invitedFilter.addEventListener('change', refreshMap);
+  dateFilter.addEventListener('change', refreshMap);
 
 })();

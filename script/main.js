@@ -1,18 +1,18 @@
-(function() {
+(() => {
 
-  var infoWindows = [];
-  var map;
-  var overlay;
+  const infoWindows = [];
+  let map;
+  let overlay;
 
-  var eventWrapper = document.getElementById('map-wrapper');
-  var eventMapElem = document.getElementById('map');
-  var eventListElem = document.getElementById('event-list');
+  const eventWrapper = document.getElementById('map-wrapper');
+  const eventMapElem = document.getElementById('map');
+  const eventListElem = document.getElementById('event-list');
 
-  var artistFilter = document.getElementById('filter-artist');
-  var locationFilter = document.getElementById('filter-location');
-  var eventTypeFilter = document.getElementById('filter-event-type');
-  var dateFilter = document.getElementById('filter-date');
-  var invitedFilter = document.getElementById('filter-invited');
+  const artistFilter = document.getElementById('filter-artist');
+  const locationFilter = document.getElementById('filter-location');
+  const eventTypeFilter = document.getElementById('filter-event-type');
+  const dateFilter = document.getElementById('filter-date');
+  const invitedFilter = document.getElementById('filter-invited');
 
   //var overlayControl = document.createElement('button');
   //overlayControl.id = 'yehaw-event-map-overlay-toggle';
@@ -20,9 +20,9 @@
   //overlayControl.addEventListener('click', toggleOverlay);
   //eventWrapper.appendChild(overlayControl);
 
-  window.initYehawMap = function()
-  {
-    var center = {lat: 47.606209, lng: -122.332069};
+  window.initYehawMap = () => {
+
+    const center = {lat: 47.606209, lng: -122.332069};
 
     map = new google.maps.Map(eventMapElem, {
       center: center,
@@ -32,7 +32,7 @@
     });
 
     // Overlay
-    var imageBounds = {
+    const imageBounds = {
       north: 47.667934,
       south: 47.606209,
       east: -122.230959,
@@ -44,13 +44,11 @@
 
     // Build a manifest of events
 
-    var locationManifest = [];
-    var artistManifest = [];
-    var eventTypeManifest = [];
+    const locationManifest = [];
+    const artistManifest = [];
+    const eventTypeManifest = [];
 
-    for(var i=0; i<window.yehawEvents.length; i++)
-    {
-      var event = window.yehawEvents[i];
+    window.yehawEvents.forEach(event => {
 
       // Location
       if(!locationManifest[event.location.title])
@@ -65,16 +63,16 @@
       locationManifest[event.location.title].events.push(event);
 
       // Artist
-      for(var artistIndex in event.artists)
-      {
-        var artist = event.artists[artistIndex];
+      event.artists.forEach(artist => {
+
         if(!artistManifest[artist])
         {
           artistManifest[artist] = {
             name: artist
           };
         }
-      }
+
+      });
 
       // Event Type
       if(!eventTypeManifest[event.eventType])
@@ -83,56 +81,54 @@
           title: event.eventType.title
         };
       }
-    }
 
-    for(var locationName in locationManifest)
+    });
+
+    for(let locationName in locationManifest)
     {
-      var location = locationManifest[locationName];
+      const location = locationManifest[locationName];
 
       // Marker
-      var marker = setUpMapMarker(location);
+      const marker = setUpMapMarker(location);
 
       // Info Window
-      var infoWindow = setUpInfoWindow(location, marker);
+      const infoWindow = setUpInfoWindow(location, marker);
       infoWindows.push(infoWindow);
 
       // List Item
-      for(var i=0; i<location.events.length; i++)
-      {
-        var event = location.events[i];
+      location.events.forEach(event => {
         eventListElem.appendChild(createEventListItem(event, marker, infoWindow));
-      }
+      });
 
-      locationFilter.innerHTML += '<option>' + locationName + '</option>';
+      locationFilter.innerHTML += `<option>${locationName}</option>`;
     }
 
-    for(var artist in artistManifest)
+    for(let artist in artistManifest)
     {
-      artistFilter.innerHTML += '<option>' + artist + '</option>';
+      artistFilter.innerHTML += `<option>${artist}</option>`;
     }
 
-    for(var eventType in eventTypeManifest)
+    for(let eventType in eventTypeManifest)
     {
-      eventTypeFilter.innerHTML += '<option>' + eventType + '</option>';
+      eventTypeFilter.innerHTML += `<option>${eventType}</option>`;
     }
   }
 
-  function setUpMapMarker(location)
-  {
+  const setUpMapMarker = (location) => {
+
     // Google Maps marker
-    var marker = new google.maps.Marker({
+    return new google.maps.Marker({
       map: map,
       position: location.coordinates,
       title: location.title
     });
 
-    return marker;
   }
 
-  function setUpInfoWindow(location, marker)
-  {
+  const setUpInfoWindow = (location, marker) => {
+
     // Google Maps Info Window
-    var infoWindow = new google.maps.InfoWindow();
+    const infoWindow = new google.maps.InfoWindow();
 
     marker.addListener('click', function() {
       infoWindow.setContent(getLocationInfoWindowContent(location));
@@ -140,45 +136,44 @@
     });
 
     return infoWindow;
+
   }
 
-  function openInfoWindow(infoWindow, marker)
-  {
+  const openInfoWindow = (infoWindow, marker) => {
+
     // Close any open info windows
-    for(var i=0; i<infoWindows.length; i++)
-    {
-      infoWindows[i].close();
-    }
+    infoWindows.forEach((infoWindow) => { infoWindow.close(); });
 
     infoWindow.open(map, marker);
+
   }
 
-  function createEventListItem(event, marker, infoWindow)
-  {
+  const createEventListItem = (event, marker, infoWindow) => {
+
     // List Item
-    var listItem = document.createElement('li');
+    const listItem = document.createElement('li');
 
     // Event Title
-    var eventTitle = document.createElement('span');
+    const eventTitle = document.createElement('span');
     eventTitle.className = 'event-title';
     eventTitle.innerText = event.title;
     listItem.appendChild(eventTitle);
 
     // Event Date
-    var eventDate = document.createElement('span');
+    const eventDate = document.createElement('span');
     eventDate.className = 'event-date';
     eventDate.innerText = moment(event.start).format('MMMM Do YYYY');
     listItem.appendChild(eventDate);
 
     // Event Location
-    var eventLocation = document.createElement('span');
+    const eventLocation = document.createElement('span');
     eventLocation.className = 'event-location';
     eventLocation.innerText = event.location.title;
     listItem.appendChild(eventLocation);
 
     listItem.addEventListener('click', function() {
 
-      var markerPosition = marker.getPosition();
+      const markerPosition = marker.getPosition();
       map.setCenter(markerPosition);
 
       infoWindow.setContent(getEventInfoWindowContent(event));
@@ -189,8 +184,8 @@
     return listItem;
   }
 
-  function toggleOverlay()
-  {
+  const toggleOverlay = () => {
+
     if(overlay.map)
     {
       overlay.setMap(null);
@@ -199,16 +194,17 @@
     {
       overlay.setMap(map);
     }
+
   }
 
-  function getLocationInfoWindowContent(location)
-  {
-    var output = '';
+  const getLocationInfoWindowContent = (location) => {
+
+    let output = '';
 
     output += '<div class="map-location-info-wrapper">';
     output += '<span class="explanation">Upcoming events at this location:</span>';
 
-    for(var i=0; i<3; i++)
+    for(let i=0; i<3; i++)
     {
       var event = location.events[i];
 
@@ -218,26 +214,27 @@
       }
 
       output += '<span class="map-location-info">';
-      output += '<a href="' + event.url + '" target="_blank" class="event-title">' + event.title + '</a>';
-      output += '<span class="event-date">' + moment(event.start).format('MMMM Do YYYY') + '</span>';
+      output += `<a href="${event.url}" target="_blank" class="event-title">${event.title}</a>`;
+      output += `<span class="event-date">${moment(event.start).format('MMMM Do YYYY')}</span>`;
       output += '</span>';
     }
 
-    output += '<span class="event-location">' + location.title + '</span>';
+    output += `<span class="event-location">${location.title}</span>`;
     output += '</div>';
 
     return output;
+
   }
 
-  function getEventInfoWindowContent(event)
-  {
-    var output = '';
+  const getEventInfoWindowContent = (event) => {
+
+    let output = '';
 
     output += '<div class="map-event-info-wrapper">';
     output += '<span class="map-event-info">';
-    output += '<a href="' + event.url + '" target="_blank" class="event-title">' + event.title + '</a>';
-    output += '<span class="event-date">' + moment(event.start).format('MMMM Do YYYY h:mm A') + ' - ' + moment(event.end).format('MMMM Do YYYY h:mm A') + '</span>';
-    output += '<span class="event-location">' + event.location.title + '</span>';
+    output += `<a href="${event.url}" target="_blank" class="event-title">${event.title}</a>`;
+    output += `<span class="event-date">${moment(event.start).format('MMMM Do YYYY h:mm A')} - ${moment(event.end).format('MMMM Do YYYY h:mm A')}</span>`;
+    output += `<span class="event-location">${event.location.title}</span>`;
     output += '</span>';
     output += '</div>';
 

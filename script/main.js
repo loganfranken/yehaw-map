@@ -21,6 +21,8 @@
   const dateFilter = document.getElementById('filter-date');
   const invitedFilter = document.getElementById('filter-invited');
 
+  const noEventsMessage = document.getElementById('no-events-message');
+
   //var overlayControl = document.createElement('button');
   //overlayControl.id = 'yehaw-event-map-overlay-toggle';
   //overlayControl.innerText = 'Toggle Original Map';
@@ -129,6 +131,9 @@
 
   const refreshMap = () => {
 
+    noEventsMessage.setAttribute('style', 'display: none');
+    let filteredEventCount = 0;
+
     // Clear all of the current event information
     markers.forEach(marker => { marker.setMap(null); });
     eventListElem.innerHTML = '';
@@ -180,6 +185,7 @@
         }
 
         filteredLocation.events.push(event);
+        filteredEventCount++;
 
       });
 
@@ -202,6 +208,11 @@
       });
 
     });
+
+    if(filteredEventCount === 0)
+    {
+      noEventsMessage.setAttribute('style', 'display: block');
+    }
 
   };
 

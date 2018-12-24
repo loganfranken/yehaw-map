@@ -85,30 +85,30 @@ html, body
 
 .map-menu
 {
-  position: absolute;
+  background: #FFF;
+  display: none;
+  height: 100%;
+  position: fixed;
+  top: 2.4em;
   width: 100%;
   z-index: 1;
 }
 
-.map-menu-list
+.map-menu.open
 {
-  display: none;
-  height: 100%;
-  overflow: auto;
-  position: fixed;
-  top: 2.4em;
-  width: 100%;
+  display: block;
 }
 
-.open .map-menu-list
+.map-menu-list
 {
-  background: #FFF;
-  display: block;
+  height: 100%;
+  overflow: auto;
+  width: 100%;
 }
 
 @media (min-width: 37.5em)
 {
-  .map-menu-list
+  .map-menu
   {
     width: 30em;
   }
@@ -258,4 +258,13 @@ html, body
   font-size: 1em;
   padding: 0.5em;
   width: 100%;
+}
+
+/* No Events Message
+------------------------------------------------------- */
+
+#no-events-message
+{
+  display: none;
+  padding: 1.5em;
 }

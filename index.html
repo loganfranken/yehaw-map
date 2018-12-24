@@ -19,6 +19,11 @@
     </div>
 
     <div id="filter-wrapper" class="map-menu">
+
+      <p class="status-message">
+        <strong id="events-count-display">0</strong> events currently displayed
+      </p>
+
       <ul id="filter-list" class="map-menu-list">
         <li>
           <label for="filter-artist">Artist</label>
@@ -49,11 +54,12 @@
           </select>
         </li>
       </ul>
+
     </div>
 
     <div id="event-wrapper" class="map-menu">
 
-      <p id="no-events-message">
+      <p id="no-events-message" class="status-message">
         No events are displayed. Please update the <strong>filters</strong>
         to display more events.
       </p>

@@ -25,6 +25,7 @@
   const filterMenuControl = document.getElementById('filter-menu-control');
 
   const noEventsMessage = document.getElementById('no-events-message');
+  const eventsCountDisplay = document.getElementById('events-count-display');
 
   let isEventsMenuOpen = false;
   let isFilterMenuOpen = false;
@@ -218,6 +219,7 @@
 
     });
 
+    eventsCountDisplay.innerHTML = filteredEventCount;
     if(filteredEventCount === 0)
     {
       noEventsMessage.setAttribute('style', 'display: block');

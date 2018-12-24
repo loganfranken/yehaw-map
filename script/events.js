@@ -64,6 +64,22 @@
         lat: 47.607309,
         lng: -122.3403218
       }
+    },
+
+    HedreenGallery: {
+      title: 'Hedreen Gallery',
+      coordinates: {
+        lat: 47.5959878,
+        lng: -122.3194932
+      }
+    },
+
+    SouthPugetSoundCommunityCollegeGallery: {
+      title: 'South Puget Sound Community College Gallery',
+      coordinates: {
+        lat: 47.0237083,
+        lng: -122.9317756
+      }
     }
 
   };
@@ -87,12 +103,23 @@
   window.yehawEvents = [
 
     {
-      title: 'Latinx / Indigenous Artists at Vermillion Gallery',
-      start: '2019-01-10 17:00',
-      end: '2019-04-06 18:00',
-      url: 'https://yehawshow.com/events/2019/1/10/latinx-indigenous-artists-at-vermillion-gallery',
-      location: Location.VermillionGallery,
-      artists: ['Various'],
+      title: 'Kanani Miyamoto at Feast Arts Center',
+      start: '2018-11-15 18:00',
+      end: '2019-01-11 17:00',
+      url: 'https://yehawshow.com/events/2018/11/15/kanani-miyamoto-at-feast-arts-center',
+      location: Location.FeastArtsCenter,
+      artists: ['Kanani Miyamoto'],
+      eventType: EventType.Exhibition,
+      invited: Invited.NonIndigenous
+    },
+
+    {
+      title: 'Elizabeth LaPensée at Hedreen Gallery',
+      start: '2018-12-01 14:00',
+      end: '2019-03-03 18:00',
+      url: 'https://yehawshow.com/events/2018/12/1/elizabeth-lapense-at-hedreen-gallery',
+      location: Location.HedreenGallery,
+      artists: ['Elizabeth LaPensée'],
       eventType: EventType.Exhibition,
       invited: Invited.NonIndigenous
     },
@@ -109,17 +136,6 @@
     },
 
     {
-      title: 'yəhaw̓ at King Street Station!',
-      start: '2019-01-19 10:00',
-      end: '2019-05-12 17:00',
-      url: 'https://yehawshow.com/events/2018/8/19/yhaw-exhibition-opening-at-king-street-station',
-      location: Location.KingStreetStation,
-      artists: ['Various'],
-      eventType: EventType.Exhibition,
-      invited: Invited.NonIndigenous
-    },
-
-    {
       title: 'Art Encounter at SAM\'s Olympic Sculpture Park',
       start: '2019-01-25 19:00',
       end: '2019-01-25 21:00',
@@ -127,6 +143,28 @@
       location: Location.OlympicSculpturePark,
       artists: ['Various'],
       eventType: EventType.Performance,
+      invited: Invited.NonIndigenous
+    },
+
+    {
+      title: 'yəhaw̓ at South Puget Sound Community College Gallery',
+      start: '2019-02-08 18:00',
+      end: '2019-03-08 20:00',
+      url: 'https://yehawshow.com/events/2019/2/8/yhaw-at-south-puget-sound-community-college-gallery',
+      location: Location.SouthPugetSoundCommunityCollegeGallery,
+      artists: ['Various'],
+      eventType: EventType.Exhibition,
+      invited: Invited.NonIndigenous
+    },
+
+    {
+      title: 'unidos levantamos el cielo at Vermillion Gallery',
+      start: '2019-02-14 17:00',
+      end: '2019-05-05 18:00',
+      url: 'https://yehawshow.com/events/2019/1/10/latinx-indigenous-artists-at-vermillion-gallery',
+      location: Location.VermillionGallery,
+      artists: ['Various'],
+      eventType: EventType.Exhibition,
       invited: Invited.NonIndigenous
     },
 
@@ -169,6 +207,17 @@
       end: '2019-03-24 17:00',
       url: 'https://yehawshow.com/events/2019/2/28/sam-community-gallery-opening-reception-d4ydj',
       location: Location.SeattleArtMuseum,
+      artists: ['Various'],
+      eventType: EventType.Exhibition,
+      invited: Invited.NonIndigenous
+    },
+
+    {
+      title: 'yəhaw̓ at King Street Station!',
+      start: '2019-03-23 10:00',
+      end: '2019-08-03 16:00',
+      url: 'https://yehawshow.com/events/2018/8/19/yhaw-exhibition-opening-at-king-street-station',
+      location: Location.KingStreetStation,
       artists: ['Various'],
       eventType: EventType.Exhibition,
       invited: Invited.NonIndigenous

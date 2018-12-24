@@ -97,6 +97,7 @@ html, body
   overflow: auto;
   position: fixed;
   top: 2.4em;
+  width: 100%;
 }
 
 .open .map-menu-list
@@ -238,7 +239,7 @@ html, body
 
 #filter-list li
 {
-  margin: 1.5em 1em;
+  margin: 1.5em;
 }
 
 #filter-list label
@@ -251,6 +252,7 @@ html, body
 #filter-list select, #filter-list input
 {
   border: 1px solid #CCC;
+  box-sizing: border-box;
   display: block;
   font-family: 'Montserrat', Arial, sans-serif;
   font-size: 1em;

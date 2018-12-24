@@ -195,6 +195,7 @@
         }
 
         filteredLocation.events.push(event);
+
         filteredEventCount++;
 
       });
@@ -208,10 +209,12 @@
 
     });
 
+    let exampleMarker = null;
     filteredLocationManifest.forEach(location => {
 
       // Marker
       const marker = setUpMapMarker(location);
+      exampleMarker = marker;
 
       // Info Window
       const infoWindow = setUpInfoWindow(location, marker);
@@ -223,6 +226,10 @@
       });
 
     });
+
+    // Center the map on one of the markers
+    const markerPosition = exampleMarker.getPosition();
+    map.setCenter(markerPosition);
 
     eventsCountDisplay.innerHTML = filteredEventCount;
     if(filteredEventCount === 0)

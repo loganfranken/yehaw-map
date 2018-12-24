@@ -288,6 +288,11 @@
 
     listItem.addEventListener('click', function() {
 
+      if(window.innerWidth < 600)
+      {
+        closeEventsMenu();
+      }
+
       const markerPosition = marker.getPosition();
       map.setCenter(markerPosition);
 

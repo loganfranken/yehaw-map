@@ -199,6 +199,11 @@
 
       });
 
+      if(filteredLocation.events.length === 0)
+      {
+        return;
+      }
+
       filteredLocationManifest.push(filteredLocation);
 
     });

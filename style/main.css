@@ -44,6 +44,7 @@ html, body
   font-size: 1em;
   font-weight: bold;
   margin: 0;
+  outline: 0;
   padding: 0;
   text-align: center;
   text-transform: uppercase;

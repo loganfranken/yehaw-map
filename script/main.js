@@ -21,7 +21,16 @@
   const dateFilter = document.getElementById('filter-date');
   const invitedFilter = document.getElementById('filter-invited');
 
+  const eventsMenuControl = document.getElementById('events-menu-control');
+  const filterMenuControl = document.getElementById('filter-menu-control');
+
   const noEventsMessage = document.getElementById('no-events-message');
+
+  let isEventsMenuOpen = false;
+  let isFilterMenuOpen = false;
+
+  const eventsMenu = document.getElementById('event-wrapper');
+  const filterMenu = document.getElementById('filter-wrapper');
 
   //var overlayControl = document.createElement('button');
   //overlayControl.id = 'yehaw-event-map-overlay-toggle';
@@ -346,6 +355,61 @@
 
     return output;
   }
+
+  const toggleEventsMenu = () => {
+    if(isEventsMenuOpen)
+    {
+      closeEventsMenu();
+    }
+    else
+    {
+      openEventsMenu();
+    }
+  };
+
+  const openEventsMenu = () => {
+    closeFilterMenu();
+    isEventsMenuOpen = true;
+    eventsMenuControl.className = 'map-menu-control open';
+    eventsMenu.className = 'map-menu open';
+  };
+
+  const closeEventsMenu = () => {
+    isEventsMenuOpen = false;
+    eventsMenuControl.className = 'map-menu-control';
+    eventsMenu.className = 'map-menu';
+  };
+
+  const toggleFilterMenu = () => {
+
+    if(isFilterMenuOpen)
+    {
+      closeFilterMenu();
+    }
+    else
+    {
+      openFilterMenu();
+    }
+
+  };
+
+  const openFilterMenu = () => {
+    closeEventsMenu();
+    isFilterMenuOpen = true;
+    filterMenuControl.className = 'map-menu-control open';
+    filterMenu.className = 'map-menu open';
+  };
+
+  const closeFilterMenu = () => {
+    isFilterMenuOpen = false;
+    filterMenuControl.className = 'map-menu-control';
+    filterMenu.className = 'map-menu';
+  };
+
+  // Set up events
+
+  eventsMenuControl.addEventListener('click', toggleEventsMenu);
+  filterMenuControl.addEventListener('click', toggleFilterMenu);
 
   locationFilter.addEventListener('change', refreshMap);
   artistFilter.addEventListener('change', refreshMap);

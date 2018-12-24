@@ -157,6 +157,7 @@ html, body
 
 .map-location-info-wrapper
 {
+  font-family: 'Open Sans', Arial, sans-serif;
   font-size: 1.1em;
 }
 
@@ -201,6 +202,7 @@ html, body
 
 .map-event-info-wrapper
 {
+  font-family: 'Open Sans', Arial, sans-serif;
   font-size: 1.2em;
 }
 

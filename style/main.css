@@ -1,6 +1,6 @@
 html, body
 {
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: 'Open Sans', Arial, sans-serif;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -12,32 +12,105 @@ html, body
 
 #map-wrapper
 {
-  display: flex;
-  flex-direction: column;
   height: 100%;
-}
-
-#event-wrapper
-{
-  display: flex;
-  flex-direction: row;
-}
-
-#filter-list
-{
-  background: #E8ECEC;
-  display: flex;
-  height: 20em;
+  position: relative;
 }
 
 #map
 {
-  flex: 1;
+  height: 100%;
+  width: 100%;
 }
 
-#event-list
+/* Map Menu Controls
+------------------------------------------------------- */
+
+.map-menu-controls
 {
-  width: 20em;
+  background: #272727;
+  display: flex;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+}
+
+.map-menu-control
+{
+  background: #272727;
+  border: none;
+  color: #FFF;
+  cursor: pointer;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 50%;
+}
+
+#filter-menu-control
+{
+  left: 50%;
+}
+
+.map-menu-control span
+{
+  display: block;
+  padding: 1em;
+}
+
+.map-menu-control.open
+{
+  background: #FFF;
+  color: #272727;
+}
+
+@media (min-width: 37.5em)
+{
+  .map-menu-control
+  {
+    width: auto;
+  }
+
+  .map-menu-control span
+  {
+    padding: 1em 2em;
+  }
+}
+
+/* Map Menu
+------------------------------------------------------- */
+
+.map-menu
+{
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.map-menu-list
+{
+  display: none;
+  height: 100%;
+  overflow: auto;
+  position: fixed;
+  top: 2.4em;
+}
+
+.open .map-menu-list
+{
+  background: #FFF;
+  display: block;
+}
+
+@media (min-width: 37.5em)
+{
+  .map-menu-list
+  {
+    width: 30em;
+  }
 }
 
 /* Event List
@@ -46,7 +119,6 @@ html, body
 #event-list
 {
   list-style: none;
-  margin: 0;
   overflow: auto;
   padding: 0;
 }
@@ -152,19 +224,21 @@ html, body
 /* Filter List
 ------------------------------------------------------- */
 
+#filter-wrapper h2
+{
+  left: 50%;
+}
+
 #filter-list
 {
-  align-items: center;
-  flex-direction: row-reverse;
   list-style: none;
-  margin: 0;
   overflow: auto;
-  padding: 0;
+  padding: 1em 0;
 }
 
 #filter-list li
 {
-  margin: 0 1em;
+  margin: 1.5em 1em;
 }
 
 #filter-list label
@@ -174,8 +248,12 @@ html, body
   margin-bottom: 0.25em;
 }
 
-#filter-list select
+#filter-list select, #filter-list input
 {
+  border: 1px solid #CCC;
+  display: block;
   font-family: 'Montserrat', Arial, sans-serif;
   font-size: 1em;
+  padding: 0.5em;
+  width: 100%;
 }

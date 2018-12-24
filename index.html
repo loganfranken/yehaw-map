@@ -6,46 +6,57 @@
 
   <title>yəhaw̓ Map Demo</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link rel="stylesheet" href="style/main.css">
 </head>
 <body>
 
   <div id="map-wrapper">
-    <ul id="filter-list">
-      <li>
-        <label for="filter-artist">Artist</label>
-        <select id="filter-artist">
-          <option>All</option>
-        </select>
-      </li>
-      <li>
-        <label for="filter-location">Location</label>
-        <select id="filter-location">
-          <option>All</option>
-        </select>
-      </li>
-      <li>
-        <label for="filter-event-type">Event Type</label>
-        <select id="filter-event-type">
-          <option>All</option>
-        </select>
-      </li>
-      <li>
-        <label for="filter-date">Date</label>
-        <input id="filter-date" type="date">
-      </li>
-      <li>
-        <label for="filter-invited">Invited</label>
-        <select id="filter-invited">
-          <option>All</option>
-        </select>
-      </li>
-    </ul>
-    <div id="event-wrapper">
-      <ul id="event-list"></ul>
-      <div id="map"></div>
+
+    <div class="map-menu-controls">
+      <button id="events-menu-control" class="map-menu-control"><span>Events List</span></button>
+      <button id="filter-menu-control" class="map-menu-control"><span>Filters</span></button>
     </div>
+
+    <div id="filter-wrapper" class="map-menu">
+      <ul id="filter-list" class="map-menu-list">
+        <li>
+          <label for="filter-artist">Artist</label>
+          <select id="filter-artist">
+            <option>All</option>
+          </select>
+        </li>
+        <li>
+          <label for="filter-location">Location</label>
+          <select id="filter-location">
+            <option>All</option>
+          </select>
+        </li>
+        <li>
+          <label for="filter-event-type">Event Type</label>
+          <select id="filter-event-type">
+            <option>All</option>
+          </select>
+        </li>
+        <li>
+          <label for="filter-date">Date</label>
+          <input id="filter-date" type="date">
+        </li>
+        <li>
+          <label for="filter-invited">Invited</label>
+          <select id="filter-invited">
+            <option>All</option>
+          </select>
+        </li>
+      </ul>
+    </div>
+
+    <div id="event-wrapper" class="map-menu">
+      <ul id="event-list" class="map-menu-list"></ul>
+    </div>
+
+    <div id="map"></div>
+
   </div>
 
   <script src="script/moment.min.js"></script>

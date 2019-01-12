@@ -6,7 +6,6 @@
   const locationManifest = [];
   const artistManifest = [];
   const eventTypeManifest = [];
-  const invitedManifest = [];
 
   let map;
   let overlay;
@@ -19,7 +18,6 @@
   const locationFilter = document.getElementById('filter-location');
   const eventTypeFilter = document.getElementById('filter-event-type');
   const dateFilter = document.getElementById('filter-date');
-  const invitedFilter = document.getElementById('filter-invited');
 
   const eventsMenuControl = document.getElementById('events-menu-control');
   const filterMenuControl = document.getElementById('filter-menu-control');
@@ -100,12 +98,6 @@
         eventTypeManifest.push(event.eventType.title);
       }
 
-      // Invited
-      if(!invitedManifest.includes(event.invited.title))
-      {
-        invitedManifest.push(event.invited.title);
-      }
-
     });
 
     refreshMap();
@@ -122,9 +114,6 @@
 
     eventTypeManifest.sort();
     eventTypeManifest.forEach(eventType => { eventTypeFilter.innerHTML += `<option>${eventType}</option>`; });
-
-    invitedManifest.sort();
-    invitedManifest.forEach(invited => { invitedFilter.innerHTML += `<option>${invited}</option>`; });
   }
 
   const getFilters = () => {
@@ -133,8 +122,7 @@
       artist: artistFilter.value === 'All' ? null : artistFilter.value,
       location: locationFilter.value === 'All' ? null : locationFilter.value,
       eventType: eventTypeFilter.value === 'All' ? null : eventTypeFilter.value,
-      date: dateFilter.value === '' ? null : dateFilter.value,
-      invited: invitedFilter.value === 'All' ? null : invitedFilter.value
+      date: dateFilter.value === '' ? null : dateFilter.value
     };
 
   };
@@ -177,12 +165,6 @@
 
         // Filter: Event Type
         if(filters.eventType !== null && event.eventType.title !== filters.eventType)
-        {
-          return;
-        }
-
-        // Filter: Invited
-        if(filters.invited !== null && event.invited.title !== filters.invited)
         {
           return;
         }
@@ -433,7 +415,6 @@
   locationFilter.addEventListener('change', refreshMap);
   artistFilter.addEventListener('change', refreshMap);
   eventTypeFilter.addEventListener('change', refreshMap);
-  invitedFilter.addEventListener('change', refreshMap);
   dateFilter.addEventListener('change', refreshMap);
 
 })();

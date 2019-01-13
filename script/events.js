@@ -152,8 +152,8 @@
 
   const Invited = {
 
-    Indigenous: { title: 'Indigenous' },
-    NonIndigenous: { title: 'Non-Indigenous' }
+    Indigenous: { title: 'Indigenous Only' },
+    NonIndigenous: { title: 'Indigenous and Non-Indigenous' }
 
   };
 

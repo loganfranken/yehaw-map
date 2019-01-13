@@ -20,6 +20,7 @@
   const eventTypeFilter = document.getElementById('filter-event-type');
   const dateFilter = document.getElementById('filter-date');
   const invitedFilter = document.getElementById('filter-invited');
+  const pastEventsFilter = document.getElementById('filter-past-events');
 
   const eventsMenuControl = document.getElementById('events-menu-control');
   const filterMenuControl = document.getElementById('filter-menu-control');
@@ -134,7 +135,8 @@
       location: locationFilter.value === 'All' ? null : locationFilter.value,
       eventType: eventTypeFilter.value === 'All' ? null : eventTypeFilter.value,
       date: dateFilter.value === '' ? null : dateFilter.value,
-      invited: invitedFilter.value === 'All' ? null : invitedFilter.value
+      invited: invitedFilter.value === 'All' ? null : invitedFilter.value,
+      showPastEvents: pastEventsFilter.checked
     };
 
   };
@@ -152,6 +154,20 @@
     const filters = getFilters();
     const filteredLocationManifest = [];
 
+    // If we have a date filter, we need to force the "Show Past Events"
+    // filter to be enabled
+    if(filters.date !== null)
+    {
+      pastEventsFilter.checked = true;
+      pastEventsFilter.disabled = true;
+      pastEventsFilter.parentElement.className = 'disabled';
+    }
+    else
+    {
+      pastEventsFilter.disabled = false;
+      pastEventsFilter.parentElement.className = '';
+    }
+
     // Filter the location manifest
     locationManifest.forEach(location => {
 
@@ -168,6 +184,12 @@
       };
 
       location.events.forEach(event => {
+
+        // Filter: Show Past Events
+        if(!filters.showPastEvents && moment().isAfter(event.end, 'day'))
+        {
+          return;
+        }
 
         // Filter: Artist
         if(filters.artist !== null && !event.artists.includes(filters.artist))
@@ -435,5 +457,6 @@
   eventTypeFilter.addEventListener('change', refreshMap);
   invitedFilter.addEventListener('change', refreshMap);
   dateFilter.addEventListener('change', refreshMap);
+  pastEventsFilter.addEventListener('change', refreshMap);
 
 })();

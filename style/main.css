@@ -51,11 +51,6 @@ html, body
   width: 50%;
 }
 
-#filter-menu-control
-{
-  left: 50%;
-}
-
 .map-menu-control span
 {
   display: block;
@@ -66,6 +61,59 @@ html, body
 {
   background: #FFF;
   color: #272727;
+}
+
+#filter-list label.disabled
+{
+  color: #DDD;
+}
+
+#filter-list input#filter-past-events
+{
+  background: #FFF;
+  border: 1px solid #000;
+  display: inline-block;
+  margin-right: 0.6em;
+  width: auto;
+}
+
+#filter-list input#filter-past-events::before
+{
+  background: #FFF;
+  border: 2px solid #CCC;
+  content: '';
+  display: block;
+  height: 1em;
+  margin-top: -0.2em;
+  width: 1em;
+}
+
+#filter-list input#filter-past-events[disabled]::before
+{
+  border-color: #DDD;
+}
+
+#filter-list input#filter-past-events::after
+{
+  background: #333;
+  content: '';
+  display: block;
+  height: 0.65em;
+  margin-left: 0.3em;
+  margin-top: -0.95em;
+  opacity: 0;
+  transition: opacity 0.2s;
+  width: 0.65em;
+}
+
+#filter-list input#filter-past-events[disabled]::after
+{
+  background: #CCC;
+}
+
+#filter-list input#filter-past-events:checked::after
+{
+  opacity: 1;
 }
 
 @media (min-width: 37.5em)

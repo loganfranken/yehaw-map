@@ -10,9 +10,9 @@ window.mapStyles = [
   {
     "elementType": "labels",
     "stylers": [
-	  {
+	  /*{
 		"visibility": "off"
-	  }
+  }*/
     ]
   },
   {
@@ -167,9 +167,9 @@ window.mapStyles = [
     "featureType": "road.arterial",
 	"elementType": "labels",
     "stylers": [
-      {
+      /*{
         "visibility": "off"
-      }
+      }*/
     ]
   },
   {
@@ -194,9 +194,9 @@ window.mapStyles = [
     "featureType": "road.highway",
 	"elementType": "labels",
     "stylers": [
-      {
+      /*{
         "visibility": "off"
-      }
+      }*/
     ]
   },
   {

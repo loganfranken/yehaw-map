@@ -144,84 +144,32 @@
   const refreshMap = () => {
 
     noEventsMessage.setAttribute('style', 'display: none');
-    let filteredEventCount = 0;
 
     // Clear all of the current event information
     markers.forEach(marker => { marker.setMap(null); });
     eventListElem.innerHTML = '';
 
     // Get the current state of the filters
-    const filters = getFilters();
-    const filteredLocationManifest = [];
+    let filters = getFilters();
 
     // If we have a date filter, we need to force the "Show Past Events"
     // filter to be enabled
     toggleForcedPastEvents(filters.date !== null);
+    filters = getFilters();
 
-    // Filter the location manifest
-    let hasHiddenPastEvents = false;
-    locationManifest.forEach(location => {
+    let filterResults = filterLocations(filters);
 
-      // Filter: Location
-      if(filters.location !== null && filters.location !== location.title)
-      {
-        return;
-      }
+    // If we don't have any filtered events, but we filtered past events,
+    // let's force on the "Show Past Events" filter
+    if((filterResults.filteredEventCount === 0 && filterResults.hasHiddenPastEvents) || (filterResults.filteredEventCount === filterResults.filteredPastEventCount))
+    {
+      toggleForcedPastEvents(true);
+      filters = getFilters();
+      filterResults = filterLocations(filters);
+    }
 
-      let filteredLocation = {
-        title: location.title,
-        coordinates: location.coordinates,
-        events: []
-      };
-
-      location.events.forEach(event => {
-
-        // Filter: Show Past Events
-        if(!filters.showPastEvents && moment().isAfter(event.end, 'day'))
-        {
-          hasHiddenPastEvents = true;
-          return;
-        }
-
-        // Filter: Artist
-        if(filters.artist !== null && !event.artists.includes(filters.artist))
-        {
-          return;
-        }
-
-        // Filter: Event Type
-        if(filters.eventType !== null && event.eventType.title !== filters.eventType)
-        {
-          return;
-        }
-
-        // Filter: Invited
-        if(filters.invited !== null && event.invited.title !== filters.invited)
-        {
-          return;
-        }
-
-        // Filter: Event Date
-        const filterDate = moment(filters.date);
-        if(filters.date !== null && (filterDate.isBefore(event.start, 'day') || filterDate.isAfter(event.end, 'day')))
-        {
-          return;
-        }
-
-        filteredLocation.events.push(event);
-
-        filteredEventCount++;
-
-      });
-
-      if(filteredLocation.events.length === 0)
-      {
-        return;
-      }
-
-      filteredLocationManifest.push(filteredLocation);
-
-    });
+    const filteredLocationManifest = filterResults.filteredLocationManifest;
+    const filteredEventCount = filterResults.filteredEventCount;
 
     let exampleMarker = null;
     const eventMarkerPairs = [];
@@ -256,15 +204,6 @@
       eventListElem.appendChild(createEventListItem(pair.event, pair.marker, pair.infoWindow));
     });
 
-    // If we don't have any events to display, but we did hide some past
-    // events, let's turn on past events and refresh again as a courtesy
-    if(filteredEventCount === 0 && hasHiddenPastEvents)
-    {
-      toggleForcedPastEvents(true);
-      refreshMap();
-      return;
-    }
-
     // Center the map on one of the markers
     centerMap(exampleMarker);
 
@@ -276,7 +215,101 @@
 
   };
 
+  const filterLocations = (filters) => {
+
+    const filteredLocationManifest = [];
+
+    let filteredPastEventCount = 0;
+    let filteredEventCount = 0;
+
+    let hasHiddenPastEvents = false;
+
+    // Filter the location manifest
+    locationManifest.forEach(location => {
+
+      // Filter: Location
+      if(filters.location !== null && filters.location !== location.title)
+      {
+        hasHiddenPastEvents = true;
+        return;
+      }
+
+      let filteredLocation = {
+        title: location.title,
+        coordinates: location.coordinates,
+        events: []
+      };
+
+      location.events.forEach(event => {
+
+        const isPastEvent = moment().isAfter(event.end, 'day');
+
+        // Filter: Show Past Events
+        if(!filters.showPastEvents && isPastEvent)
+        {
+          return;
+        }
+
+        // Filter: Artist
+        if(filters.artist !== null && !event.artists.includes(filters.artist))
+        {
+          return;
+        }
+
+        // Filter: Event Type
+        if(filters.eventType !== null && event.eventType.title !== filters.eventType)
+        {
+          return;
+        }
+
+        // Filter: Invited
+        if(filters.invited !== null && event.invited.title !== filters.invited)
+        {
+          return;
+        }
+
+        // Filter: Event Date
+        const filterDate = moment(filters.date);
+        if(filters.date !== null && (filterDate.isBefore(event.start, 'day') || filterDate.isAfter(event.end, 'day')))
+        {
+          return;
+        }
+
+        filteredLocation.events.push(event);
+
+        filteredEventCount++;
+
+        if(isPastEvent)
+        {
+          filteredPastEventCount++;
+        }
+
+      });
+
+      if(filteredLocation.events.length === 0)
+      {
+        return;
+      }
+
+      filteredLocationManifest.push(filteredLocation);
+
+    });
+
+    return {
+      filteredLocationManifest,
+      filteredEventCount,
+      filteredPastEventCount,
+      hasHiddenPastEvents,
+    };
+
+  }
+
   const centerMap = (marker) => {
+
+    if(!marker)
+    {
+      return;
+    }
 
     const position = marker.getPosition();
 

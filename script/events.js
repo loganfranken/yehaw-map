@@ -216,8 +216,8 @@
 
     {
       title: 'yəhaw̓ at the Race and Pedagogy Conference',
-      start: '2018-09-27 0:01',
-      end: '2018-09-30 0:00',
+      start: '2018-09-27 00:01',
+      end: '2018-09-30 00:00',
       url: 'https://yehawshow.com/events/2018/9/27/yhaw-at-the-race-and-pedagogy-conference',
       location: Location.UniversityOfPugetSound,
       artists: ['Tracy Rector'],
@@ -579,8 +579,8 @@
 
     {
       title: 'yəhaw̓ at King Street Station!',
-      start: '2019-03-23 0:00',
-      end: '2019-08-03 6:00',
+      start: '2019-03-23 00:00',
+      end: '2019-08-03 06:00',
       url: 'https://yehawshow.com/events/2018/8/19/yhaw-exhibition-opening-at-king-street-station',
       location: Location.KingStreetStation,
       artists: ['Various'],
@@ -591,7 +591,7 @@
     {
       title: 'Randi Purser and Erik Sanchez at the Suquamish Museum',
       start: '2019-04-20 23:30',
-      end: '2019-07-07 0:30',
+      end: '2019-07-07 00:30',
       url: 'https://yehawshow.com/events/2019/4/20/yhaw-at-the-suquamish-museum',
       location: Location.SuquamishMuseum,
       artists: ['Randi Purser', 'Erik Sanchez'],

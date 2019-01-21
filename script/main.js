@@ -156,19 +156,10 @@
 
     // If we have a date filter, we need to force the "Show Past Events"
     // filter to be enabled
-    if(filters.date !== null)
-    {
-      pastEventsFilter.checked = true;
-      pastEventsFilter.disabled = true;
-      pastEventsFilter.parentElement.className = 'disabled';
-    }
-    else
-    {
-      pastEventsFilter.disabled = false;
-      pastEventsFilter.parentElement.className = '';
-    }
+    toggleForcedPastEvents(filters.date !== null);
 
     // Filter the location manifest
+    let hasHiddenPastEvents = false;
     locationManifest.forEach(location => {
 
       // Filter: Location
@@ -188,6 +179,7 @@
         // Filter: Show Past Events
         if(!filters.showPastEvents && moment().isAfter(event.end, 'day'))
         {
+          hasHiddenPastEvents = true;
           return;
         }
 
@@ -258,6 +250,15 @@
       eventListElem.appendChild(createEventListItem(pair.event, pair.marker, pair.infoWindow));
     });
 
+    // If we don't have any events to display, but we did hide some past
+    // events, let's turn on past events and refresh again as a courtesy
+    if(filteredEventCount === 0 && hasHiddenPastEvents)
+    {
+      pastEventsFilter.checked = true;
+      refreshMap();
+      return;
+    }
+
     eventsCountDisplay.innerHTML = filteredEventCount;
     if(filteredEventCount === 0)
     {
@@ -265,6 +266,22 @@
     }
 
   };
+
+  const toggleForcedPastEvents = (forceOn) => {
+
+    if(forceOn)
+    {
+      pastEventsFilter.checked = true;
+      pastEventsFilter.disabled = true;
+      pastEventsFilter.parentElement.className = 'disabled';
+    }
+    else
+    {
+      pastEventsFilter.disabled = false;
+      pastEventsFilter.parentElement.className = '';
+    }
+
+  }
 
   const setUpMapMarker = (location) => {
 

@@ -231,6 +231,7 @@
 
     });
 
+    const eventMarkerPairs = [];
     filteredLocationManifest.forEach(location => {
 
       // Marker
@@ -242,9 +243,19 @@
 
       // List Item
       location.events.forEach(event => {
-        eventListElem.appendChild(createEventListItem(event, marker, infoWindow));
+        eventMarkerPairs.push({ event, marker, infoWindow });
       });
 
+    });
+
+    eventMarkerPairs.sort((a, b) => {
+      if(a.event.start < b.event.start) { return -1; }
+      if(a.event.start > b.event.start) { return 1; }
+      return 0;
+    });
+
+    eventMarkerPairs.forEach(pair => {
+      eventListElem.appendChild(createEventListItem(pair.event, pair.marker, pair.infoWindow));
     });
 
     eventsCountDisplay.innerHTML = filteredEventCount;

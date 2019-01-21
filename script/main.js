@@ -380,7 +380,10 @@
     let output = '';
 
     output += '<div class="map-location-info-wrapper">';
-    output += '<span class="explanation">Upcoming events at this location:</span>';
+
+    output += (pastEventsFilter.checked)
+      ? '<span class="explanation">Events at this location:</span>'
+      : '<span class="explanation">Upcoming events at this location:</span>';
 
     for(let i=0; i<3; i++)
     {

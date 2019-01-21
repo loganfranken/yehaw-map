@@ -419,20 +419,14 @@
       ? '<span class="explanation">Events at this location:</span>'
       : '<span class="explanation">Upcoming events at this location:</span>';
 
-    for(let i=0; i<3; i++)
-    {
-      var event = location.events[i];
-
-      if(!event)
-      {
-        break;
-      }
-
+    output += '<div class="map-location-info-list">'
+    location.events.forEach(event => {
       output += '<span class="map-location-info">';
       output += `<a href="${event.url}" target="_blank" class="event-title">${event.title}</a>`;
       output += `<span class="event-date">${moment(event.start).format('MMMM Do YYYY')}</span>`;
       output += '</span>';
-    }
+    });
+    output += '</div>';
 
     output += `<span class="event-location">${location.title}</span>`;
     output += '</div>';

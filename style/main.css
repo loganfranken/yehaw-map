@@ -249,6 +249,12 @@ html, body
   padding-top: 0.7em;
 }
 
+.map-location-info-list
+{
+  max-height: 10em;
+  overflow: scroll;
+}
+
 /* Info Window (Event)
 ------------------------------------------------------- */
 

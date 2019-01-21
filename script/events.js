@@ -253,7 +253,7 @@
       end: '2018-12-09 17:00',
       url: 'https://yehawshow.com/events/2018/10/1/coast-salish-exhibition-at-the-seattle-public-library',
       location: Location.SeattlePublicLibrary,
-      artists: ['Denise Emerson', 'Caroline Edwards', 'Denise Emerson', 'Karen Engel', 'Kimberly Miller', 'Abbey Pierson'],
+      artists: ['Denise Emerson', 'Caroline Edwards', 'Karen Engel', 'Kimberly Miller', 'Abbey Pierson'],
       eventType: EventType.Exhibition,
       invited: Invited.NonIndigenous
     },
@@ -506,7 +506,7 @@
       end: '2019-01-25 21:00',
       url: 'https://yehawshow.com/events/2019/1/25/art-encounter-at-sams-olympic-sculpture-park',
       location: Location.OlympicSculpturePark,
-      artists: ['Christine Babic'],
+      artists: ['Christine Babic', 'Mary Babic', 'Alex Britt'],
       eventType: EventType.Exhibition,
       invited: Invited.NonIndigenous
     },
@@ -550,7 +550,7 @@
       end: '2019-02-22 21:00',
       url: 'https://yehawshow.com/events/2019/1/25/art-encounter-at-sams-olympic-sculpture-park-yn7db',
       location: Location.OlympicSculpturePark,
-      artists: ['Christine Babic'],
+      artists: ['Christine Babic', 'Mary Babic', 'Alex Britt'],
       eventType: EventType.Exhibition,
       invited: Invited.NonIndigenous
     },
@@ -579,8 +579,8 @@
 
     {
       title: 'yəhaw̓ at King Street Station!',
-      start: '2019-03-23 10:00',
-      end: '2019-08-03 16:00',
+      start: '2019-03-23 0:00',
+      end: '2019-08-03 6:00',
       url: 'https://yehawshow.com/events/2018/8/19/yhaw-exhibition-opening-at-king-street-station',
       location: Location.KingStreetStation,
       artists: ['Various'],

@@ -223,11 +223,17 @@
 
     });
 
+    let exampleMarker = null;
     const eventMarkerPairs = [];
     filteredLocationManifest.forEach(location => {
 
       // Marker
       const marker = setUpMapMarker(location);
+
+      if(exampleMarker == null)
+      {
+        exampleMarker = marker;
+      }
 
       // Info Window
       const infoWindow = setUpInfoWindow(location, marker);
@@ -254,10 +260,14 @@
     // events, let's turn on past events and refresh again as a courtesy
     if(filteredEventCount === 0 && hasHiddenPastEvents)
     {
-      pastEventsFilter.checked = true;
+      toggleForcedPastEvents(true);
       refreshMap();
       return;
     }
+
+    // Center the map on one of the markers
+    const markerPosition = exampleMarker.getPosition();
+    map.setCenter(markerPosition);
 
     eventsCountDisplay.innerHTML = filteredEventCount;
     if(filteredEventCount === 0)

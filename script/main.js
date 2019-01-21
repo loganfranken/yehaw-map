@@ -266,13 +266,38 @@
     }
 
     // Center the map on one of the markers
-    const markerPosition = exampleMarker.getPosition();
-    map.setCenter(markerPosition);
+    centerMap(exampleMarker);
 
     eventsCountDisplay.innerHTML = filteredEventCount;
     if(filteredEventCount === 0)
     {
       noEventsMessage.setAttribute('style', 'display: block');
+    }
+
+  };
+
+  const centerMap = (marker) => {
+
+    const position = marker.getPosition();
+
+    // Is a menu displayed?
+    const openMenu = document.querySelector('.map-menu.open');
+
+    if(openMenu == null)
+    {
+      // If not, we don't need to adjust for the menu offset
+      map.setCenter(position);
+    }
+    else
+    {
+      // Source: https://stackoverflow.com/questions/3473367/how-to-offset-the-center-of-a-google-maps-api-v3-in-pixels
+      var centerProjection = map.getProjection().fromLatLngToPoint(marker.getPosition());
+      var offsetProjection = new google.maps.Point(openMenu.offsetWidth / Math.pow(2, map.getZoom()), 0);
+
+      map.setCenter(map.getProjection().fromPointToLatLng(new google.maps.Point(
+        centerProjection.x - (offsetProjection.x/2),
+        centerProjection.y
+      )));
     }
 
   };
@@ -361,8 +386,7 @@
         closeEventsMenu();
       }
 
-      const markerPosition = marker.getPosition();
-      map.setCenter(markerPosition);
+      centerMap(marker);
 
       infoWindow.setContent(getEventInfoWindowContent(event));
       openInfoWindow(infoWindow, marker);

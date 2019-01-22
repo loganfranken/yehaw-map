@@ -39,6 +39,8 @@
   let waterlinesOverlay;
   let isWaterlinesOverlayDisplayed = false;
 
+  const defaultCenter = {lat: 47.606209, lng: -122.332069};
+
   const waterlinesOverlayBounds = {
     9: [[81, 82], [178, 179]],
     10: [[163, 164], [356, 358]],
@@ -52,10 +54,8 @@
 
   window.initYehawMap = () => {
 
-    const center = {lat: 47.606209, lng: -122.332069};
-
     map = new google.maps.Map(eventMapElem, {
-      center: center,
+      center: defaultCenter,
       zoom: 13,
       disableDefaultUI: true,
       styles: window.mapStyles
@@ -66,7 +66,7 @@
       name: 'waterlines',
       getTileUrl: (coord, zoom) => {
 
-        if (zoom < 9 || zoom > 14 ||
+        if (zoom < 9 || zoom > 16 ||
           waterlinesOverlayBounds[zoom][0][0] > coord.x || coord.x > waterlinesOverlayBounds[zoom][0][1] ||
           waterlinesOverlayBounds[zoom][1][0] > coord.y || coord.y > waterlinesOverlayBounds[zoom][1][1])
         {
@@ -555,6 +555,8 @@
 
   const toggleWaterlinesOverlay = () => {
 
+    const currentZoomLevel = map.getZoom();
+
     if(isWaterlinesOverlayDisplayed)
     {
       // Hide the overlay
@@ -563,6 +565,17 @@
     }
     else
     {
+      // Force the map into a zoom level where the map will actually display
+      if(currentZoomLevel < 9)
+      {
+        map.setZoom(9);
+        map.setCenter(defaultCenter);
+      }
+      else if(currentZoomLevel > 16)
+      {
+        map.setZoom(16);
+      }
+
       // Show the overlay
       map.overlayMapTypes.push(waterlinesOverlay);
       toggleWaterlinesControl.childNodes[0].innerText = 'Hide Waterlines Map';

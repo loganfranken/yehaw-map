@@ -63,59 +63,6 @@ html, body
   color: #272727;
 }
 
-#filter-list label.disabled
-{
-  color: #DDD;
-}
-
-#filter-list input#filter-past-events
-{
-  background: #FFF;
-  border: 1px solid #000;
-  display: inline-block;
-  margin-right: 0.6em;
-  width: auto;
-}
-
-#filter-list input#filter-past-events::before
-{
-  background: #FFF;
-  border: 2px solid #CCC;
-  content: '';
-  display: block;
-  height: 1em;
-  margin-top: -0.2em;
-  width: 1em;
-}
-
-#filter-list input#filter-past-events[disabled]::before
-{
-  border-color: #DDD;
-}
-
-#filter-list input#filter-past-events::after
-{
-  background: #333;
-  content: '';
-  display: block;
-  height: 0.65em;
-  margin-left: 0.3em;
-  margin-top: -0.95em;
-  opacity: 0;
-  transition: opacity 0.2s;
-  width: 0.65em;
-}
-
-#filter-list input#filter-past-events[disabled]::after
-{
-  background: #CCC;
-}
-
-#filter-list input#filter-past-events:checked::after
-{
-  opacity: 1;
-}
-
 #toggle-waterlines-control
 {
   bottom: 0;
@@ -266,7 +213,7 @@ html, body
 .map-location-info-list
 {
   max-height: 10em;
-  overflow: scroll;
+  overflow-y: auto;
 }
 
 /* Info Window (Event)
@@ -328,6 +275,11 @@ html, body
   margin-bottom: 0.25em;
 }
 
+#filter-list label[for="filter-past-events"]
+{
+  cursor: pointer;
+}
+
 #filter-list select, #filter-list input
 {
   border: 1px solid #CCC;
@@ -337,6 +289,60 @@ html, body
   font-size: 1em;
   padding: 0.5em;
   width: 100%;
+}
+
+#filter-list label.disabled
+{
+  color: #DDD;
+}
+
+#filter-list input#filter-past-events
+{
+  background: #FFF;
+  border: 1px solid #000;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 0.6em;
+  width: auto;
+}
+
+#filter-list input#filter-past-events::before
+{
+  background: #FFF;
+  border: 2px solid #CCC;
+  content: '';
+  display: block;
+  height: 1em;
+  margin-top: -0.2em;
+  width: 1em;
+}
+
+#filter-list input#filter-past-events[disabled]::before
+{
+  border-color: #DDD;
+}
+
+#filter-list input#filter-past-events::after
+{
+  background: #333;
+  content: '';
+  display: block;
+  height: 0.65em;
+  margin-left: 0.3em;
+  margin-top: -0.95em;
+  opacity: 0;
+  transition: opacity 0.2s;
+  width: 0.65em;
+}
+
+#filter-list input#filter-past-events[disabled]::after
+{
+  background: #CCC;
+}
+
+#filter-list input#filter-past-events:checked::after
+{
+  opacity: 1;
 }
 
 /* No Events Message

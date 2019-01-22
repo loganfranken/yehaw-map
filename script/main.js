@@ -15,6 +15,8 @@
   const eventMapElem = document.getElementById('map');
   const eventListElem = document.getElementById('event-list');
 
+  const toggleWaterlinesControl = document.getElementById('toggle-waterlines-control');
+
   const artistFilter = document.getElementById('filter-artist');
   const locationFilter = document.getElementById('filter-location');
   const eventTypeFilter = document.getElementById('filter-event-type');
@@ -34,11 +36,19 @@
   const eventsMenu = document.getElementById('event-wrapper');
   const filterMenu = document.getElementById('filter-wrapper');
 
-  //var overlayControl = document.createElement('button');
-  //overlayControl.id = 'yehaw-event-map-overlay-toggle';
-  //overlayControl.innerText = 'Toggle Original Map';
-  //overlayControl.addEventListener('click', toggleOverlay);
-  //eventWrapper.appendChild(overlayControl);
+  let waterlinesOverlay;
+  let isWaterlinesOverlayDisplayed = false;
+
+  const waterlinesOverlayBounds = {
+    9: [[81, 82], [178, 179]],
+    10: [[163, 164], [356, 358]],
+    11: [[327, 328], [713, 716]],
+    12: [[654, 657], [1426, 1433]],
+    13: [[1309, 1315], [2853, 2867]],
+    14: [[2619, 2631], [5707, 5734]],
+    15: [[5238, 5262], [11414, 11468]],
+    16: [[10477, 10525], [22829, 22937]]
+  };
 
   window.initYehawMap = () => {
 
@@ -51,16 +61,26 @@
       styles: window.mapStyles
     });
 
-    // Overlay
-    const imageBounds = {
-      north: 47.667934,
-      south: 47.606209,
-      east: -122.230959,
-      west: -122.332069
-    };
+    // Create the Waterlines map tile overlay
+    waterlinesOverlay = new google.maps.ImageMapType({
+      name: 'waterlines',
+      getTileUrl: (coord, zoom) => {
 
-    //overlay = new google.maps.GroundOverlay('https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg', imageBounds);
-    //overlay.setMap(map);
+        if (zoom < 9 || zoom > 14 ||
+          waterlinesOverlayBounds[zoom][0][0] > coord.x || coord.x > waterlinesOverlayBounds[zoom][0][1] ||
+          waterlinesOverlayBounds[zoom][1][0] > coord.y || coord.y > waterlinesOverlayBounds[zoom][1][1])
+        {
+            return null;
+        }
+
+        var url = (window.location.href + 'waterlines_tiles/{z}/{x}/{y}.png')
+          .replace('{x}', coord.x)
+          .replace('{y}', coord.y)
+          .replace('{z}', zoom);
+          return url;
+        },
+        tileSize: new google.maps.Size(256, 256)
+    });
 
     window.yehawEvents.forEach(event => {
 
@@ -533,6 +553,25 @@
     filterMenu.className = 'map-menu';
   };
 
+  const toggleWaterlinesOverlay = () => {
+
+    if(isWaterlinesOverlayDisplayed)
+    {
+      // Hide the overlay
+      map.overlayMapTypes.pop();
+      toggleWaterlinesControl.childNodes[0].innerText = 'Show Waterlines Map';
+    }
+    else
+    {
+      // Show the overlay
+      map.overlayMapTypes.push(waterlinesOverlay);
+      toggleWaterlinesControl.childNodes[0].innerText = 'Hide Waterlines Map';
+    }
+
+    isWaterlinesOverlayDisplayed = !isWaterlinesOverlayDisplayed;
+
+  };
+
   // Set up events
 
   eventsMenuControl.addEventListener('click', toggleEventsMenu);
@@ -544,5 +583,7 @@
   invitedFilter.addEventListener('change', refreshMap);
   dateFilter.addEventListener('change', refreshMap);
   pastEventsFilter.addEventListener('change', refreshMap);
+
+  toggleWaterlinesControl.addEventListener('click', toggleWaterlinesOverlay)
 
 })();

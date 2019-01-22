@@ -116,6 +116,13 @@ html, body
   opacity: 1;
 }
 
+#toggle-waterlines-control
+{
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
+
 @media (min-width: 37.5em)
 {
   .map-menu-control
@@ -126,6 +133,13 @@ html, body
   .map-menu-control span
   {
     padding: 1em 2em;
+  }
+
+  #toggle-waterlines-control
+  {
+    position: absolute;
+    right: 0;
+    width: auto;
   }
 }
 

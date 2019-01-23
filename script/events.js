@@ -145,8 +145,10 @@
     Exhibition: { title: 'Exhibition' },
     Reading: { title: 'Reading' },
     Sale: { title: 'Sale' },
+    Residency: { title: 'Residency' },
     Performance: { title: 'Performance' },
-    Workshop: { title: 'Workshop' }
+    Workshop: { title: 'Workshop' },
+    FestivalConference: { title: 'Festival/Conference' }
 
   };
 
@@ -177,7 +179,7 @@
       url: 'https://yehawshow.com/events/2018/8/4/anationisamassacre',
       location: Location.KingStreetStation,
       artists: ['Demian DinéYazhi’'],
-      eventType: EventType.Exhibition,
+      eventType: EventType.FestivalConference,
       invited: Invited.NonIndigenous
     },
 
@@ -221,7 +223,7 @@
       url: 'https://yehawshow.com/events/2018/9/27/yhaw-at-the-race-and-pedagogy-conference',
       location: Location.UniversityOfPugetSound,
       artists: ['Tracy Rector'],
-      eventType: EventType.Exhibition,
+      eventType: EventType.FestivalConference,
       invited: Invited.NonIndigenous
     },
 
@@ -232,7 +234,7 @@
       url: 'https://yehawshow.com/events/2018/10/2/native-kut-artist-in-residence-at-the-seattle-public-library-rbsld',
       location: Location.SeattlePublicLibrary,
       artists: ['Pah-tu Pitt', 'Sean Gallagher'],
-      eventType: EventType.Exhibition,
+      eventType: EventType.Residency,
       invited: Invited.NonIndigenous
     },
 
@@ -265,7 +267,7 @@
       url: 'https://yehawshow.com/events/2018/10/2/native-kut-artist-in-residence-at-the-seattle-public-library-rbsld-fd39x',
       location: Location.SeattlePublicLibrary,
       artists: ['Pah-tu Pitt', 'Sean Gallagher'],
-      eventType: EventType.Exhibition,
+      eventType: EventType.Residency,
       invited: Invited.NonIndigenous
     },
 
@@ -287,7 +289,7 @@
       url: 'https://yehawshow.com/events/2018/10/2/native-kut-artist-in-residence-at-the-seattle-public-library-rbsld-ye3xj',
       location: Location.SeattlePublicLibrary,
       artists: ['Pah-tu Pitt', 'Sean Gallagher'],
-      eventType: EventType.Exhibition,
+      eventType: EventType.Residency,
       invited: Invited.NonIndigenous
     },
 
@@ -309,7 +311,7 @@
       url: 'https://yehawshow.com/events/2018/10/2/native-kut-artist-in-residence-at-the-seattle-public-library-ewcag',
       location: Location.SeattlePublicLibrary,
       artists: ['Roldy Aguero Ablao'],
-      eventType: EventType.Exhibition,
+      eventType: EventType.Residency,
       invited: Invited.NonIndigenous
     },
 
@@ -331,7 +333,7 @@
       url: 'https://yehawshow.com/events/2018/10/2/native-kut-artist-in-residence-at-the-seattle-public-library-ewcag-kfwzp',
       location: Location.SeattlePublicLibrary,
       artists: ['Roldy Aguero Ablao'],
-      eventType: EventType.Exhibition,
+      eventType: EventType.Residency,
       invited: Invited.NonIndigenous
     },
 
@@ -353,7 +355,7 @@
       url: 'https://yehawshow.com/events/2018/10/2/native-kut-artist-in-residence-at-the-seattle-public-library-ewcag-rjrdk',
       location: Location.SeattlePublicLibrary,
       artists: ['Roldy Aguero Ablao'],
-      eventType: EventType.Exhibition,
+      eventType: EventType.Residency,
       invited: Invited.NonIndigenous
     },
 
@@ -386,7 +388,7 @@
       url: 'https://yehawshow.com/events/2018/10/2/native-kut-artist-in-residence-at-the-seattle-public-library-y65e8',
       location: Location.SeattlePublicLibrary,
       artists: ['Fox Spears'],
-      eventType: EventType.Exhibition,
+      eventType: EventType.Residency,
       invited: Invited.NonIndigenous
     },
 
@@ -430,7 +432,7 @@
       url: 'https://yehawshow.com/events/2018/10/2/native-kut-artist-in-residence-at-the-seattle-public-library-y65e8-6nn55',
       location: Location.SeattlePublicLibrary,
       artists: ['Fox Spears'],
-      eventType: EventType.Exhibition,
+      eventType: EventType.Residency,
       invited: Invited.NonIndigenous
     },
 
@@ -452,7 +454,7 @@
       url: 'https://yehawshow.com/events/2018/10/2/native-kut-artist-in-residence-at-the-seattle-public-library-y65e8-p9c4h',
       location: Location.SeattlePublicLibrary,
       artists: ['Fox Spears'],
-      eventType: EventType.Exhibition,
+      eventType: EventType.Residency,
       invited: Invited.NonIndigenous
     },
 
@@ -507,7 +509,7 @@
       url: 'https://yehawshow.com/events/2019/1/25/art-encounter-at-sams-olympic-sculpture-park',
       location: Location.OlympicSculpturePark,
       artists: ['Christine Babic', 'Mary Babic', 'Alex Britt'],
-      eventType: EventType.Exhibition,
+      eventType: EventType.Residency,
       invited: Invited.NonIndigenous
     },
 
@@ -551,7 +553,7 @@
       url: 'https://yehawshow.com/events/2019/1/25/art-encounter-at-sams-olympic-sculpture-park-yn7db',
       location: Location.OlympicSculpturePark,
       artists: ['Christine Babic', 'Mary Babic', 'Alex Britt'],
-      eventType: EventType.Exhibition,
+      eventType: EventType.Residency,
       invited: Invited.NonIndigenous
     },
 

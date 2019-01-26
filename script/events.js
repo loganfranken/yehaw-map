@@ -146,7 +146,6 @@
     Reading: { title: 'Reading' },
     Sale: { title: 'Sale' },
     Residency: { title: 'Residency' },
-    Performance: { title: 'Performance' },
     Workshop: { title: 'Workshop' },
     FestivalConference: { title: 'Festival/Conference' }
 
@@ -322,7 +321,7 @@
       url: 'https://yehawshow.com/events/2018/10/26/raven-juarez-at-lettuce-253',
       location: Location.UnionClub,
       artists: ['Raven Juarez', 'Ixtli White Hawk'],
-      eventType: EventType.Performance,
+      eventType: EventType.FestivalConference,
       invited: Invited.NonIndigenous
     },
 
@@ -377,7 +376,7 @@
       url: 'https://yehawshow.com/events/2018/11/8/honoring-the-wisdom-of-our-elders',
       location: Location.SeattlePublicLibrary,
       artists: ['Jackie Swanson', 'Peg Deam', 'John Mullen', 'Ellany Kayce', 'Roger Fernandes'],
-      eventType: EventType.Exhibition,
+      eventType: EventType.FestivalConference,
       invited: Invited.NonIndigenous
     },
 
@@ -465,7 +464,7 @@
       url: 'https://yehawshow.com/events/2018/12/1/library-artists-in-residence-panel-discussion-event',
       location: Location.SeattlePublicLibrary,
       artists: ['Fern Naomi Renville', 'Margaret Morris', 'Raven Raven Julia Juarez', 'Roldy Aguero Ablao', 'Fox Spears', 'Denise Emerson'],
-      eventType: EventType.Exhibition,
+      eventType: EventType.FestivalConference,
       invited: Invited.NonIndigenous
     },
 

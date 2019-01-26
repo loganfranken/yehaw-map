@@ -1,4 +1,4 @@
-window.mapStyles = [
+export default [
   {
     "elementType": "geometry",
     "stylers": [

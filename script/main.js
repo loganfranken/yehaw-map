@@ -1,3 +1,9 @@
+import EventType from './EventType';
+import Invited from './Invited';
+import Location from './Location';
+import mapStyles from './map-style';
+import yehawEvents from './events';
+
 (() => {
 
   const markers = [];
@@ -58,7 +64,7 @@
       center: defaultCenter,
       zoom: 13,
       disableDefaultUI: true,
-      styles: window.mapStyles
+      styles: mapStyles
     });
 
     // Create the Waterlines map tile overlay
@@ -82,7 +88,7 @@
         tileSize: new google.maps.Size(256, 256)
     });
 
-    window.yehawEvents.forEach(event => {
+    yehawEvents.forEach(event => {
 
       // Location
       let location = locationManifest.find(location => location.title === event.location.title);

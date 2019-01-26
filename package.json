@@ -1,0 +1,26 @@
+{
+  "name": "yehaw-map",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loganfranken/yehaw-map.git"
+  },
+  "author": "Logan Franken <loganfranken@gmail.com> (http://www.loganfranken.com)",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/loganfranken/yehaw-map/issues"
+  },
+  "homepage": "https://github.com/loganfranken/yehaw-map#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "babel-loader": "^8.0.5",
+    "webpack": "^4.18.0",
+    "webpack-cli": "^3.1.0"
+  }
+}

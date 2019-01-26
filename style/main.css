@@ -12,6 +12,7 @@ html, body
 
 #map-wrapper
 {
+  background: #E5E3DF;
   height: 100%;
   position: relative;
 }

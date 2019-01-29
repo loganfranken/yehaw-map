@@ -134,6 +134,7 @@ html, body
 #event-list
 {
   list-style: none;
+  margin-bottom: 4em;
   overflow: auto;
   padding: 0;
 }
@@ -165,6 +166,15 @@ html, body
 {
   display: block;
 }
+
+@media (min-width: 37.5em)
+{
+  #event-list
+  {
+    margin-bottom: 1em;
+  }
+}
+
 
 /* Info Window (Map Location)
 ------------------------------------------------------- */

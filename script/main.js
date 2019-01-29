@@ -45,7 +45,7 @@ import yehawEvents from './events';
   let waterlinesOverlay;
   let isWaterlinesOverlayDisplayed = false;
 
-  const defaultCenter = {lat: 47.606209, lng: -122.332069};
+  const defaultCenter = {lat: 47.610969, lng: -122.336953};
 
   const waterlinesOverlayBounds = {
     9: [[81, 82], [178, 179]],
@@ -136,6 +136,7 @@ import yehawEvents from './events';
     });
 
     refreshMap();
+    centerMap({ getPosition: () => { return defaultCenter; } });
 
     locationManifest.sort((a, b) => {
       if(a.title < b.title) { return -1; }

@@ -115,7 +115,7 @@ export default [
     },
 
     {
-      title: 'yəhaw̓ Native Art Mart - Tacoma Studio Tour',
+      title: 'Native Art Mart - Tacoma Studio Tour',
       start: '2018-10-13 11:00',
       end: '2018-10-14 16:00',
       url: 'https://yehawshow.com/events/2018/10/13/native-art-mart-tacoma-studio-tour',

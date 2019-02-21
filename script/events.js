@@ -271,7 +271,7 @@ export default [
     {
       title: 'Fox Anthony Spears - Artist in Residence at the Seattle Public Library',
       start: '2018-11-17 11:00',
-      end: '2018-11-10 17:00',
+      end: '2018-11-17 17:00',
       url: 'https://yehawshow.com/events/2018/10/2/native-kut-artist-in-residence-at-the-seattle-public-library-y65e8-6nn55',
       location: Location.SeattlePublicLibrary,
       artists: ['Fox Spears'],
@@ -369,8 +369,8 @@ export default [
 
     {
       title: 'And Now We Know: Indigenous Artist Write the World at South Puget Sound Community College Gallery',
-      start: '2019-02-08 18:00',
-      end: '2019-03-08 20:00',
+      start: '2019-02-11 18:00',
+      end: '2019-03-11 20:00',
       url: 'https://yehawshow.com/events/2019/2/8/yhaw-at-south-puget-sound-community-college-gallery',
       location: Location.SouthPugetSoundCommunityCollegeGallery,
       artists: ['Various'],

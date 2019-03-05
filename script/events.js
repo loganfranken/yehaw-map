@@ -412,7 +412,7 @@ export default [
     },
 
     {
-      title: 'Indigenous / Latinx Creatives at Vermillion Gallery',
+      title: 'Indigenous Latinx Exhibit at Vermillion Gallery',
       start: '2019-03-14 17:00',
       end: '2019-06-08 17:00',
       url: 'https://yehawshow.com/events/2019/1/10/latinx-indigenous-artists-at-vermillion-gallery',

@@ -442,6 +442,39 @@ export default [
       artists: ['Randi Purser', 'Erik Sanchez'],
       eventType: EventType.Workshop,
       invited: Invited.NonIndigenous
+    },
+
+    {
+      title: 'Workshop: Indigenous Gathering Practices',
+      start: '2019-04-07 10:00',
+      end: '2019-04-07 14:00',
+      url: 'https://yehawshow.com/events/2019/4/7/workshop-indigenous-gathering-practices',
+      location: Location.DaybreakStarCulturalCenter,
+      artists: ['Sara Siestreem'],
+      eventType: EventType.Workshop,
+      invited: Invited.Indigenous
+    },
+
+    {
+      title: 'Artist Talk: Sara Siestreem',
+      start: '2019-04-06 14:00',
+      end: '2019-04-06 15:30',
+      url: 'https://yehawshow.com/events/2019/4/6/artist-talk-sara-siestreem',
+      location: Location.HenryArtGallery,
+      artists: ['Sara Siestreem'],
+      eventType: EventType.Workshop,
+      invited: Invited.Indigenous
+    },
+
+    {
+      title: 'The Source: Art - Indigenous Reflections on Water',
+      start: '2019-04-13 13:00',
+      end: '2019-04-13 19:00',
+      url: 'https://yehawshow.com/events/2019/4/13/the-source-art-indigenous-reflections-on-water',
+      location: Location.WaterfrontSpace,
+      artists: ['Various'],
+      eventType: EventType.Exhibition,
+      invited: Invited.NonIndigenous
     }
 
 ];

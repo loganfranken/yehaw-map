@@ -134,6 +134,22 @@ export default {
       lat: 47.729270,
       lng: -122.557170
     }
+  },
+
+  HenryArtGallery: {
+    title: 'Henry Art Gallery',
+    coordinates: {
+      lat: 47.656840,
+      lng: -122.312060
+    }
+  },
+
+  WaterfrontSpace: {
+    title: 'Waterfront Space',
+    coordinates: {
+      lat: 47.607640,
+      lng: -122.340030
+    }
   }
 
 };

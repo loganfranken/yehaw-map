@@ -477,7 +477,7 @@ import yehawEvents from './events';
 
     output += (pastEventsFilter.checked)
       ? '<span class="explanation">Events at this location:</span>'
-      : '<span class="explanation">Upcoming events at this location:</span>';
+      : '<span class="explanation">Upcoming and current events at this location:</span>';
 
     output += '<div class="map-location-info-list">'
     location.events.forEach(event => {

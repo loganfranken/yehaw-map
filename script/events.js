@@ -434,14 +434,25 @@ export default [
     },
 
     {
-      title: 'Randi Purser and Erik Sanchez at the Suquamish Museum',
-      start: '2019-04-20 23:30',
-      end: '2019-07-07 00:30',
-      url: 'https://yehawshow.com/events/2019/4/20/yhaw-at-the-suquamish-museum',
-      location: Location.SuquamishMuseum,
-      artists: ['Randi Purser', 'Erik Sanchez'],
+      title: 'Artist Talk: Sara Siestreem',
+      start: '2019-04-06 14:00',
+      end: '2019-04-06 15:30',
+      url: 'https://yehawshow.com/events/2019/4/6/artist-talk-sara-siestreem',
+      location: Location.HenryArtGallery,
+      artists: ['Sara Siestreem'],
       eventType: EventType.Workshop,
-      invited: Invited.NonIndigenous
+      invited: Invited.Indigenous
+    },
+
+    {
+      title: 'A Gift, A Breath - Lehuauakea Fernandez at the Alice Gallery',
+      start: '2019-04-06 12:00',
+      end: '2019-04-27 19:00',
+      url: 'https://yehawshow.com/events/2019/4/7/a-gift-a-breath-lehuauakea-fernandez-at-the-alice-gallery',
+      location: Location.TheAliceGallery,
+      artists: ['Lehuauakea Fernandez'],
+      eventType: EventType.Exhibition,
+      invited: Invited.Indigenous
     },
 
     {
@@ -456,17 +467,6 @@ export default [
     },
 
     {
-      title: 'Artist Talk: Sara Siestreem',
-      start: '2019-04-06 14:00',
-      end: '2019-04-06 15:30',
-      url: 'https://yehawshow.com/events/2019/4/6/artist-talk-sara-siestreem',
-      location: Location.HenryArtGallery,
-      artists: ['Sara Siestreem'],
-      eventType: EventType.Workshop,
-      invited: Invited.Indigenous
-    },
-
-    {
       title: 'The Source: Art - Indigenous Reflections on Water',
       start: '2019-04-13 13:00',
       end: '2019-04-13 19:00',
@@ -475,6 +475,93 @@ export default [
       artists: ['Various'],
       eventType: EventType.Exhibition,
       invited: Invited.NonIndigenous
-    }
+    },
 
+    {
+      title: 'Monthly Co-Working Sessions in Tacoma',
+      start: '2019-04-18 18:00',
+      end: '2019-04-18 22:00',
+      url: 'https://yehawshow.com/events/2018/7/22/monthly-co-working-sessions-in-tacoma-bztws-ayfs6-8w3es',
+      location: Location.AlmaMaterTacoma,
+      artists: ['Various', 'Rebecca Cesspooch'],
+      eventType: EventType.Workshop,
+      invited: Invited.Indigenous
+    },
+
+    {
+      title: 'Randi Purser and Erik Sanchez at the Suquamish Museum',
+      start: '2019-04-20 15:00',
+      end: '2019-07-06 16:00',
+      url: 'https://yehawshow.com/events/2019/4/20/yhaw-at-the-suquamish-museum',
+      location: Location.SuquamishMuseum,
+      artists: ['Randi Purser', 'Erik Sanchez'],
+      eventType: EventType.Workshop,
+      invited: Invited.NonIndigenous
+    },
+
+    {
+      title: 'Lifting the Sky: An Indigenous Fashion Show',
+      start: '2019-05-02 17:00',
+      end: '2019-05-02 20:30',
+      url: 'https://yehawshow.com/events/2019/5/2/lifting-the-sky-an-indigenous-fashion-show',
+      location: Location.SeattleArtMuseum,
+      artists: ['Mary Kelsay', 'Crystal Worl', 'Evan Ducharme', 'Abriel Johnny ­Rodriguez', 'Paige Pettibon', 'Ashley Alvarez', 'Michaila Taylor', 'Denise Emerson', 'Crystal Worl', 'Rico Worl', 'Ayanna Fuentes', 'Ixtli Salinas White Hawk', 'Roquin Siongco', 'Roldy Aguero Ablao', 'Drew Hobson', 'Che Sehyun'],
+      eventType: EventType.Exhibition,
+      invited: Invited.NonIndigenous
+    },
+
+    {
+      title: 'Catherine Cross Uehara at 950 Gallery',
+      start: '2019-05-09 18:00',
+      end: '2019-06-20 22:00',
+      url: 'https://yehawshow.com/events/2019/5/9/catherine-cross-uehara-at-950-gallery',
+      location: Location.Gallery950,
+      artists: ['Catherine Cross Uehara'],
+      eventType: EventType.Exhibition,
+      invited: Invited.NonIndigenous
+    },
+
+    {
+      title: 'yəhaw̓ at the Tacoma-South Sound Mini Maker Faire',
+      start: '2019-05-11 10:30',
+      end: '2019-05-11 15:00',
+      url: 'https://yehawshow.com/events/2019/5/11/yhaw-at-the-tacoma-south-sound-mini-maker-faire',
+      location: Location.UniversityOfWashingtonTacomaCampus,
+      artists: ['Various'],
+      eventType: EventType.FestivalConference,
+      invited: Invited.NonIndigenous
+    },
+
+    {
+      title: 'Monthly Co-Working Sessions in Tacoma',
+      start: '2019-05-16 18:00',
+      end: '2019-05-16 22:00',
+      url: 'https://yehawshow.com/events/2018/7/22/monthly-co-working-sessions-in-tacoma-bztws-ayfs6-8w3es-kyltr',
+      location: Location.AlmaMaterTacoma,
+      artists: ['Various', 'Crystal Christopherson'],
+      eventType: EventType.Workshop,
+      invited: Invited.Indigenous
+    },
+
+    {
+      title: 'Monthly Co-Working Sessions in Tacoma',
+      start: '2019-06-20 18:00',
+      end: '2019-06-20 22:00',
+      url: 'https://yehawshow.com/events/2018/7/22/monthly-co-working-sessions-in-tacoma-bztws-ayfs6-8w3es-l4z2t',
+      location: Location.AlmaMaterTacoma,
+      artists: ['Various', 'Olivia Hart'],
+      eventType: EventType.Workshop,
+      invited: Invited.Indigenous
+    },
+
+    {
+      title: 'Monthly Co-Working Sessions in Tacoma',
+      start: '2019-07-18 18:00',
+      end: '2019-07-18 22:00',
+      url: 'https://yehawshow.com/events/2018/7/22/monthly-co-working-sessions-in-tacoma-bztws-ayfs6-8w3es-pmehl',
+      location: Location.AlmaMaterTacoma,
+      artists: ['Various', 'Cecelia DeLeon'],
+      eventType: EventType.Workshop,
+      invited: Invited.Indigenous
+    }
 ];

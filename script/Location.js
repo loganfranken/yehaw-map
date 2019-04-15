@@ -150,6 +150,30 @@ export default {
       lat: 47.607640,
       lng: -122.340030
     }
+  },
+
+  UniversityOfWashingtonTacomaCampus: {
+    title: 'University of Washington Tacoma Campus',
+    coordinates: {
+      lat: 47.244840,
+      lng: -122.437830
+    }
+  },
+
+  Gallery950: {
+    title: '950 Gallery',
+    coordinates: {
+      lat: 47.253560,
+      lng: -122.439070
+    }
+  },
+
+  TheAliceGallery: {
+    title: 'The Alice Gallery',
+    coordinates: {
+      lat: 47.548890,
+      lng: -122.317600
+    }
   }
 
 };

@@ -505,7 +505,7 @@ export default [
       end: '2019-05-02 20:30',
       url: 'https://yehawshow.com/events/2019/5/2/lifting-the-sky-an-indigenous-fashion-show',
       location: Location.SeattleArtMuseum,
-      artists: ['Mary Kelsay', 'Crystal Worl', 'Evan Ducharme', 'Abriel Johnny ­Rodriguez', 'Paige Pettibon', 'Ashley Alvarez', 'Michaila Taylor', 'Denise Emerson', 'Crystal Worl', 'Rico Worl', 'Ayanna Fuentes', 'Ixtli Salinas White Hawk', 'Roquin Siongco', 'Roldy Aguero Ablao', 'Drew Hobson', 'Che Sehyun'],
+      artists: ['Mary Kelsay', 'Crystal Worl', 'Evan Ducharme', 'Abriel Johnny ­Rodriguez', 'Paige Pettibon', 'Ashley Alvarez', 'Michaila Taylor', 'Denise Emerson', 'Crystal Worl', 'Rico Worl', 'Ayanna Fuentes', 'Ixtli Salinas White Hawk', 'Roquin Siongco', 'Roldy Aguero Ablao', 'Drew Hobson', 'Che Sehyun', 'Matthew Lawrence', 'Katie Kihara', 'Amanda Upham'],
       eventType: EventType.Exhibition,
       invited: Invited.NonIndigenous
     },
@@ -541,6 +541,28 @@ export default [
       artists: ['Various', 'Crystal Christopherson'],
       eventType: EventType.Workshop,
       invited: Invited.Indigenous
+    },
+
+    {
+      title: 'Indigenous Beading Circle at Amplifier Art Lab',
+      start: '2019-05-23 18:00',
+      end: '2019-05-23 21:00',
+      url: 'https://yehawshow.com/events/2019/4/15/yhaw-indigenous-beading-circle-at-amplifier-art-lab',
+      location: Location.AmplifierArtLab,
+      artists: ['Various'],
+      eventType: EventType.Workshop,
+      invited: Invited.Indigenous
+    },
+
+    {
+      title: 'A Celebration of Indigenous Film and Artists',
+      start: '2019-05-24 15:00',
+      end: '2019-05-24 20:00',
+      url: 'https://yehawshow.com/events/2019/5/24/a-celebration-of-indigenous-film-and-artists',
+      location: Location.BillAndMelindaGatesFoundationDiscoveryCenter,
+      artists: ['Various'],
+      eventType: EventType.Exhibition,
+      invited: Invited.NonIndigenous
     },
 
     {

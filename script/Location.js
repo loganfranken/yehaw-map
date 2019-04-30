@@ -174,6 +174,22 @@ export default {
       lat: 47.548890,
       lng: -122.317600
     }
+  },
+
+  BillAndMelindaGatesFoundationDiscoveryCenter: {
+    title: 'Bill & Melinda Gates Foundation Discovery Center',
+    coordinates: {
+      lat: 47.619730,
+      lng: -122.347600
+    }
+  },
+
+  AmplifierArtLab: {
+    title: 'Amplifier Art Lab',
+    coordinates: {
+      lat: 47.594212,
+      lng: -122.309319
+    }
   }
 
 };

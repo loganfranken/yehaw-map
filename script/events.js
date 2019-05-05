@@ -370,7 +370,7 @@ export default [
     {
       title: 'And Now We Know: Indigenous Artist Write the World at South Puget Sound Community College Gallery',
       start: '2019-02-11 18:00',
-      end: '2019-03-11 20:00',
+      end: '2019-03-08 21:00',
       url: 'https://yehawshow.com/events/2019/2/8/yhaw-at-south-puget-sound-community-college-gallery',
       location: Location.SouthPugetSoundCommunityCollegeGallery,
       artists: ['Various'],
@@ -425,7 +425,7 @@ export default [
     {
       title: 'yəhaw̓ Exhibition at King Street Station',
       start: '2019-03-23 12:00',
-      end: '2019-08-03 06:00',
+      end: '2019-08-03 18:00',
       url: 'https://yehawshow.com/events/2018/8/19/yhaw-exhibition-opening-at-king-street-station',
       location: Location.KingStreetStation,
       artists: ['Various'],

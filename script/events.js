@@ -146,7 +146,7 @@ export default [
       eventType: EventType.Workshop,
       invited: Invited.Indigenous
     },
-
+  
     {
       title: 'Roldy Aguero Ablao - Artist in Residence at the Seattle Public Library',
       start: '2018-10-20 11:00',
@@ -181,7 +181,7 @@ export default [
     },
 
     {
-      title: 'yəhaw̓ and Native Works at Pioneer Square Art Walk',
+      title: 'yəhaw̓ and Native Works at Chief Seattle Club',
       start: '2018-11-01 17:00',
       end: '2018-11-01 20:00',
       url: 'https://yehawshow.com/events/2018/11/1/yhaw-and-native-works-at-pioneer-square-art-walk',
@@ -505,7 +505,7 @@ export default [
       end: '2019-05-02 20:30',
       url: 'https://yehawshow.com/events/2019/5/2/lifting-the-sky-an-indigenous-fashion-show',
       location: Location.SeattleArtMuseum,
-      artists: ['Mary Kelsay', 'Crystal Worl', 'Evan Ducharme', 'Abriel Johnny ­Rodriguez', 'Paige Pettibon', 'Ashley Alvarez', 'Michaila Taylor', 'Denise Emerson', 'Crystal Worl', 'Rico Worl', 'Ayanna Fuentes', 'Ixtli Salinas White Hawk', 'Roquin Siongco', 'Roldy Aguero Ablao', 'Drew Hobson', 'Che Sehyun', 'Matthew Lawrence', 'Katie Kihara', 'Amanda Upham'],
+      artists: ['Mary Kelsay', 'Crystal Worl', 'Evan Ducharme', 'Abriel Johnny ­Rodriguez', 'Paige Pettibon', 'Ashley Alvarez', 'Michaila Taylor', 'Denise Emerson', 'Ayanna Fuentes', 'Ixtli Salinas White Hawk', 'Roquin Siongco', 'Roldy Aguero Ablao', 'Drew Hobson', 'Che Sehyun', 'Matthew Lawrence', 'Katie Kihara', 'Amanda Upham'],
       eventType: EventType.Exhibition,
       invited: Invited.NonIndigenous
     },
@@ -542,7 +542,7 @@ export default [
       eventType: EventType.Workshop,
       invited: Invited.Indigenous
     },
-
+ 
     {
       title: 'Indigenous Beading Circle at Amplifier Art Lab',
       start: '2019-05-23 18:00',
@@ -572,17 +572,6 @@ export default [
       url: 'https://yehawshow.com/events/2018/7/22/monthly-co-working-sessions-in-tacoma-bztws-ayfs6-8w3es-l4z2t',
       location: Location.AlmaMaterTacoma,
       artists: ['Various', 'Olivia Hart'],
-      eventType: EventType.Workshop,
-      invited: Invited.Indigenous
-    },
-
-    {
-      title: 'Monthly Co-Working Sessions in Tacoma',
-      start: '2019-07-18 18:00',
-      end: '2019-07-18 22:00',
-      url: 'https://yehawshow.com/events/2018/7/22/monthly-co-working-sessions-in-tacoma-bztws-ayfs6-8w3es-pmehl',
-      location: Location.AlmaMaterTacoma,
-      artists: ['Various', 'Cecelia DeLeon'],
       eventType: EventType.Workshop,
       invited: Invited.Indigenous
     }

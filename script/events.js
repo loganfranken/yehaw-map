@@ -566,6 +566,17 @@ export default [
     },
 
     {
+      title: 'Artist Talk with Adam Sings In The Timber',
+      start: '2019-05-25 16:00',
+      end: '2019-05-25 17:30',
+      url: 'https://yehawshow.com/events/2019/5/25/y07gwbn4tldcw0m7jqkvc5zkrgopto',
+      location: Location.OfficeOfArtsAndCulture,
+      artists: ['Various', 'Adam Sings In The Timber'],
+      eventType: EventType.Exhibition,
+      invited: Invited.NonIndigenous
+    },
+
+    {
       title: 'Monthly Co-Working Sessions in Tacoma',
       start: '2019-06-20 18:00',
       end: '2019-06-20 22:00',

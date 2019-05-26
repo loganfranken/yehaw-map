@@ -190,6 +190,14 @@ export default {
       lat: 47.594212,
       lng: -122.309319
     }
+  },
+
+  OfficeOfArtsAndCulture: {
+    title: 'Office of Arts & Culture',
+    coordinates: {
+      lat: 47.598420,
+      lng: -122.330090
+    }
   }
 
 };

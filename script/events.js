@@ -577,6 +577,28 @@ export default [
     },
 
     {
+      title: 'Star Stories: Indigenous Latinx Art Exhibit at Nepantla Cultural Arts Gallery',
+      start: '2019-06-08 12:00',
+      end: '2019-07-06 7:00',
+      url: 'https://yehawshow.com/events/2019/5/29/star-stories-indigenous-latinx-art-exhibit-at-nepantla-cultural-arts-gallery',
+      location: Location.NepantlaCulturalArtsGallery,
+      artists: ['Various'],
+      eventType: EventType.Workshop,
+      invited: Invited.NonIndigenous
+    },
+
+    {
+      title: 'ʤə́ kʼʷ Zine Indigenous Artist Showcase at Bellevue College',
+      start: '2019-06-12 16:00',
+      end: '2019-06-12 21:00',
+      url: 'https://yehawshow.com/events/2019/6/12/-k-zine-indigenous-artist-showcase-at-bellevue-college',
+      location: Location.BellevueCollege,
+      artists: ['Sara Marie Ortiz', 'Natalie Martínez', 'fabian romero', 'Demian DinéYazhí', 'Casandra Lopez', 'Arianne True', 'Carmen Selam', 'Raven Two Feathers', 'Adam Sings in the Timber', 'DB Amorin', 'Misko Ma’iingan', 'Cindy Chischilly', 'Them Savages', 'Skyler Reed', 'Laura Da’', 'Erin Tail'],
+      eventType: EventType.Workshop,
+      invited: Invited.NonIndigenous
+    },
+
+    {
       title: 'Monthly Co-Working Sessions in Tacoma',
       start: '2019-06-20 18:00',
       end: '2019-06-20 22:00',
@@ -585,5 +607,16 @@ export default [
       artists: ['Various', 'Olivia Hart'],
       eventType: EventType.Workshop,
       invited: Invited.Indigenous
+    },
+
+    {
+      title: 'Brings the Medicine Sundial at King Street Station',
+      start: '2019-06-21 12:00',
+      end: '2019-06-21 15:00',
+      url: 'https://yehawshow.com/events/2019/6/21/brings-the-medicine-sundial-at-king-street-station',
+      location: Location.KingStreetStation,
+      artists: ['Various', 'Kimberly Corinne Deriana', 'Rob Purser', 'Delbert Miller', 'Tina Kuckkahn-Miller', 'Sayalts Miller', 'Absalom Shantz', 'Christopher C. Shaw'],
+      eventType: EventType.Exhibition,
+      invited: Invited.NonIndigenous
     }
 ];

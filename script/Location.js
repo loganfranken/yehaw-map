@@ -198,6 +198,22 @@ export default {
       lat: 47.598420,
       lng: -122.330090
     }
+  },
+
+  BellevueCollege: {
+    title: 'Bellevue College',
+    coordinates: {
+      lat: 47.586270,
+      lng: -122.143400
+    }
+  },
+
+  NepantlaCulturalArtsGallery: {
+    title: 'Nepantla Cultural Arts Gallery',
+    coordinates: {
+      lat: 47.518670,
+      lng: -122.356030
+    }
   }
 
 };

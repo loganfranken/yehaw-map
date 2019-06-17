@@ -425,7 +425,7 @@ export default [
     {
       title: 'yəhaw̓ Exhibition at King Street Station',
       start: '2019-03-23 12:00',
-      end: '2019-08-03 18:00',
+      end: '2019-08-04 18:00',
       url: 'https://yehawshow.com/events/2018/8/19/yhaw-exhibition-opening-at-king-street-station',
       location: Location.KingStreetStation,
       artists: ['Various'],

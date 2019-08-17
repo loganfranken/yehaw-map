@@ -570,7 +570,7 @@ export default [
       start: '2019-05-25 16:00',
       end: '2019-05-25 17:30',
       url: 'https://yehawshow.com/events/2019/5/25/y07gwbn4tldcw0m7jqkvc5zkrgopto',
-      location: Location.OfficeOfArtsAndCulture,
+      location: Location.KingStreetStation,
       artists: ['Various', 'Adam Sings In The Timber'],
       eventType: EventType.Exhibition,
       invited: Invited.NonIndigenous
@@ -616,6 +616,17 @@ export default [
       url: 'https://yehawshow.com/events/2019/6/21/brings-the-medicine-sundial-at-king-street-station',
       location: Location.KingStreetStation,
       artists: ['Various', 'Kimberly Corinne Deriana', 'Rob Purser', 'Delbert Miller', 'Tina Kuckkahn-Miller', 'Sayalts Miller', 'Absalom Shantz', 'Christopher C. Shaw'],
+      eventType: EventType.Exhibition,
+      invited: Invited.NonIndigenous
+    },
+
+    {
+      title: 'yәhaw̓ Closing Celebrations at King Street Station!',
+      start: '2019-08-01 13:30',
+      end: '2019-08-04 16:00',
+      url: 'https://yehawshow.com/events/2019/8/1/yhaw-closing-celebrations-at-king-street-station',
+      location: Location.KingStreetStation,
+      artists: ['Various', 'Black Belt Eagle Scout', 'Ghost Horse', 'Hailey Tayathy', 'Jess Ramirez', 'Kimberly Deriana', 'Moe’Neyah Holland', 'Michael Anderson', 'Aiyanna Stitt', 'Crystal Christopherson', 'Randi Purser', 'Jennifer Angaiak Wood', 'Catherine Cross Uehara', 'Paige Pettibon', 'Asa Wright', 'Kanani Miyamoto', 'Alex Britt', 'Raven Two Feathers'],
       eventType: EventType.Exhibition,
       invited: Invited.NonIndigenous
     }

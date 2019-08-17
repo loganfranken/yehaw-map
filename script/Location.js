@@ -192,14 +192,6 @@ export default {
     }
   },
 
-  OfficeOfArtsAndCulture: {
-    title: 'Office of Arts & Culture',
-    coordinates: {
-      lat: 47.598420,
-      lng: -122.330090
-    }
-  },
-
   BellevueCollege: {
     title: 'Bellevue College',
     coordinates: {
